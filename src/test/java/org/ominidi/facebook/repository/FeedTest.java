@@ -11,9 +11,7 @@ import static org.mockito.Mockito.*;
 
 import org.mockito.junit.MockitoJUnitRunner;
 import org.ominidi.facebook.config.Page;
-import org.ominidi.facebook.repository.Feed;
 
-import java.util.Collection;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FeedTest {
@@ -22,15 +20,15 @@ public class FeedTest {
     private FacebookClient client;
 
     @Test
-    public void itShouldReturnAListOfPostFromTheFeed() {
+    public void shouldReturnAListOfPostFromTheFeed() {
         Feed repository = new Feed(client);
         Connection<Post> posts = repository.getConnection();
 
-        verify(client).fetchConnection(Page.PAGE_ID + Page.FEED_URL, Post.class, Parameter.with("fields", Field.getForFeed()));
+        verify(client).fetchConnection(Page.PAGE_ID + Page.PAGE_FEED_URL, Post.class, Parameter.with("fields", Field.getForFeed()));
     }
 
     @Test
-    public void itShouldReturnASinglePostFromTheFeed() {
+    public void shouldReturnASinglePostFromTheFeed() {
         Long id = 221946658231380L;
         Feed repository = new Feed(client);
         Post post = repository.getObject(id);

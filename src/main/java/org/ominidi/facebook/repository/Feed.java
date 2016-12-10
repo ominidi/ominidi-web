@@ -18,7 +18,7 @@ public class Feed implements PostRepository {
     @Override
     public Connection<Post> getConnection() {
         return client.fetchConnection(
-                Page.PAGE_ID + Page.FEED_URL, Post.class, Parameter.with("fields", Field.getForFeed())
+                Page.PAGE_ID + Page.PAGE_FEED_URL, Post.class, Parameter.with("fields", Field.getForFeed())
         );
     }
 
