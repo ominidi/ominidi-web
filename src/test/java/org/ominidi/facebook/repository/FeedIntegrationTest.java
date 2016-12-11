@@ -1,30 +1,53 @@
 package org.ominidi.facebook.repository;
 
+import java.io.IOException;
+
 import com.restfb.*;
 import com.restfb.types.Post;
 import org.junit.Before;
 import org.junit.Test;
-import org.ominidi.facebook.config.App;
-import java.io.IOException;
+import org.junit.runner.RunWith;
+import org.ominidi.Application;
+import org.ominidi.facebook.configuration.FacebookConfig;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = Application.class)
+@ActiveProfiles(value = "test")
 public class FeedIntegrationTest {
 
     protected FacebookClient.AccessToken token;
 
+    protected FacebookClient client;
+
+    @Autowired
+    protected FacebookConfig facebookConfig;
+
     @Before
     public void setUp() throws IOException {
+        String appId = facebookConfig.getApplication().get("app_id");
+        String appSecret = facebookConfig.getApplication().get("app_secret");
+
         WebRequestor webRequestor = new DefaultWebRequestor();
-        WebRequestor.Response response = webRequestor.executeGet("https://graph.facebook.com/oauth/access_token" + "?client_id=" + App.APP_ID + "&client_secret=" + App.APP_SECRET + "&grant_type=client_credentials");
+        WebRequestor.Response response = webRequestor.executeGet(facebookConfig.getGraphAccessTokenUri()
+                + "?client_id="
+                + appId
+                + "&client_secret="
+                + appSecret
+                + "&grant_type=client_credentials"
+        );
         token = DefaultFacebookClient.AccessToken.fromQueryString(response.getBody());
+        client = new DefaultFacebookClient(token.getAccessToken(), appSecret, Version.VERSION_2_8);
     }
 
     @Test
     public void shouldReturnAListOfPostFromTheFeed() {
-        System.out.println(token);
-        FacebookClient client = new DefaultFacebookClient(token.getAccessToken(), App.APP_SECRET, Version.VERSION_2_8);
-        Feed repository = new Feed(client);
+        Feed repository = new Feed(client, facebookConfig);
         Connection<Post> connection = repository.getConnection();
 
         assertNotNull(connection);
@@ -33,10 +56,9 @@ public class FeedIntegrationTest {
     @Test
     public void shouldReturnASinglePostFromTheFeed() {
         Long id = 221946658231380L;
-        FacebookClient client = new DefaultFacebookClient(token.getAccessToken(), App.APP_SECRET, Version.VERSION_2_8);
-        Feed repository = new Feed(client);
-
+        Feed repository = new Feed(client, facebookConfig);
         Post post = repository.getObject(id);
+
         assertNotNull(post);
         assertEquals(id.toString(), post.getId());
     }
