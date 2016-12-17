@@ -9,9 +9,9 @@ import com.restfb.types.Post;
 import org.ominidi.facebook.configuration.FacebookConfig;
 
 public class Feed implements PostRepository {
-    protected FacebookClient client;
+    private FacebookClient client;
 
-    protected FacebookConfig config;
+    private FacebookConfig config;
 
     public Feed(FacebookClient client, FacebookConfig config) {
         this.client = client;
