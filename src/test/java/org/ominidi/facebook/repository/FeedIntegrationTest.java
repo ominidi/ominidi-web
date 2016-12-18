@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ominidi.Application;
 import org.ominidi.facebook.configuration.FacebookConfig;
+import org.ominidi.facebook.service.ClientFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -21,28 +22,17 @@ import static org.junit.Assert.*;
 @ActiveProfiles(value = "test")
 public class FeedIntegrationTest {
 
-    protected FacebookClient.AccessToken token;
-
-    protected FacebookClient client;
+    private FacebookClient client;
 
     @Autowired
-    protected FacebookConfig facebookConfig;
+    private FacebookConfig facebookConfig;
+
+    @Autowired
+    private ClientFactory clientFactory;
 
     @Before
     public void setUp() throws IOException {
-        String appId = facebookConfig.getApplication().get("app_id");
-        String appSecret = facebookConfig.getApplication().get("app_secret");
-
-        WebRequestor webRequestor = new DefaultWebRequestor();
-        WebRequestor.Response response = webRequestor.executeGet(facebookConfig.getGraphAccessTokenUri()
-                + "?client_id="
-                + appId
-                + "&client_secret="
-                + appSecret
-                + "&grant_type=client_credentials"
-        );
-        token = DefaultFacebookClient.AccessToken.fromQueryString(response.getBody());
-        client = new DefaultFacebookClient(token.getAccessToken(), appSecret, Version.VERSION_2_8);
+        client = clientFactory.getClient();
     }
 
     @Test
