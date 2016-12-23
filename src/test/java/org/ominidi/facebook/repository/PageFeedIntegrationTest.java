@@ -1,7 +1,5 @@
 package org.ominidi.facebook.repository;
 
-import java.io.IOException;
-
 import com.restfb.*;
 import com.restfb.types.Post;
 import org.junit.Before;
@@ -9,9 +7,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ominidi.Application;
 import org.ominidi.facebook.configuration.FacebookConfig;
-import org.ominidi.facebook.service.ClientFactory;
+import org.ominidi.facebook.container.ClientFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -20,7 +19,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 @ActiveProfiles(value = "test")
-public class FeedIntegrationTest {
+public class PageFeedIntegrationTest {
 
     private FacebookClient client;
 
@@ -30,14 +29,9 @@ public class FeedIntegrationTest {
     @Autowired
     private ClientFactory clientFactory;
 
-    @Before
-    public void setUp() throws IOException {
-        client = clientFactory.getClient();
-    }
-
     @Test
     public void shouldReturnAListOfPostFromTheFeed() {
-        Feed repository = new Feed(client, facebookConfig);
+        PageFeed repository = new PageFeed(clientFactory, facebookConfig);
         Connection<Post> connection = repository.getConnection();
 
         assertNotNull(connection);
@@ -46,7 +40,7 @@ public class FeedIntegrationTest {
     @Test
     public void shouldReturnASinglePostFromTheFeed() {
         Long id = 221946658231380L;
-        Feed repository = new Feed(client, facebookConfig);
+        PageFeed repository = new PageFeed(clientFactory, facebookConfig);
         Post post = repository.getObject(id);
 
         assertNotNull(post);

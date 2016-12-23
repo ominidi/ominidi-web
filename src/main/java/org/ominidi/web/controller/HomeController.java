@@ -1,8 +1,8 @@
 package org.ominidi.web.controller;
 
 import org.ominidi.facebook.configuration.FacebookConfig;
-import org.ominidi.facebook.repository.Feed;
-import org.ominidi.facebook.service.ClientFactory;
+import org.ominidi.facebook.container.ClientFactory;
+import org.ominidi.facebook.repository.PageFeed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,15 +13,19 @@ import java.io.IOException;
 
 @RestController
 public class HomeController {
-    @Autowired
     private FacebookConfig facebookConfig;
 
-    @Autowired
     private ClientFactory clientFactory;
 
+    @Autowired
+    public HomeController(ClientFactory clientFactory, FacebookConfig facebookConfig) {
+        this.clientFactory = clientFactory;
+        this.facebookConfig = facebookConfig;
+    }
+
     @GetMapping(value = "/home", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ModelAndView index() throws IOException {
-        Feed feed = new Feed(clientFactory.getClient(), facebookConfig);
+    public ModelAndView index()  {
+        PageFeed feed = new PageFeed(clientFactory, facebookConfig);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("feed", feed.getConnection());
 
