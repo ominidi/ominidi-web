@@ -1,4 +1,4 @@
-package org.ominidi.facebook.container;
+package org.ominidi.facebook.client;
 
 import com.restfb.*;
 import org.ominidi.facebook.configuration.FacebookConfig;

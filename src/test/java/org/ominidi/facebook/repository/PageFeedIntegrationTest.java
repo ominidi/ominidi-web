@@ -2,15 +2,13 @@ package org.ominidi.facebook.repository;
 
 import com.restfb.*;
 import com.restfb.types.Post;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ominidi.Application;
 import org.ominidi.facebook.configuration.FacebookConfig;
-import org.ominidi.facebook.container.ClientFactory;
+import org.ominidi.facebook.client.ClientFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 

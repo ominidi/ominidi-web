@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.ominidi.facebook.configuration.FacebookConfig;
-import org.ominidi.facebook.container.ClientFactory;
+import org.ominidi.facebook.client.ClientFactory;
 
 import java.util.HashMap;
 import java.util.Map;

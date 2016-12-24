@@ -1,6 +1,5 @@
 package org.ominidi.facebook.repository;
 
-import java.io.IOException;
 import java.util.Map;
 
 import com.restfb.Connection;
@@ -8,7 +7,7 @@ import com.restfb.FacebookClient;
 import com.restfb.Parameter;
 import com.restfb.types.Post;
 import org.ominidi.facebook.configuration.FacebookConfig;
-import org.ominidi.facebook.container.ClientFactory;
+import org.ominidi.facebook.client.ClientFactory;
 import org.springframework.stereotype.Repository;
 
 @Repository

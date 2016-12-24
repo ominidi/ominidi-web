@@ -2,7 +2,6 @@ package org.ominidi.facebook.service;
 
 import com.restfb.Connection;
 import com.restfb.types.Post;
-import org.ominidi.Application;
 import org.ominidi.facebook.repository.Feed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +22,6 @@ public class PageFeedService implements FeedAware {
 
     @Override
     public Post getPostById(Long id) {
-        return null;
+        return pageFeed.getObject(id);
     }
 }

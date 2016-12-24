@@ -1,7 +1,9 @@
 package org.ominidi.web.controller;
 
+import com.restfb.Connection;
+import com.restfb.types.Post;
 import org.ominidi.facebook.configuration.FacebookConfig;
-import org.ominidi.facebook.container.ClientFactory;
+import org.ominidi.facebook.client.ClientFactory;
 import org.ominidi.facebook.repository.PageFeed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -9,7 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class HomeController {
@@ -24,11 +27,8 @@ public class HomeController {
     }
 
     @GetMapping(value = "/home", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ModelAndView index()  {
+    public Connection<Post> index()  {
         PageFeed feed = new PageFeed(clientFactory, facebookConfig);
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("feed", feed.getConnection());
-
-        return modelAndView;
+        return feed.getConnection();
     }
 }
