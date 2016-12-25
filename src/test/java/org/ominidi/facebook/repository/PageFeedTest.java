@@ -1,8 +1,10 @@
 package org.ominidi.facebook.repository;
 
+import java.util.HashMap;
+import java.util.Map;
 import com.restfb.FacebookClient;
 import com.restfb.Parameter;
-import com.restfb.types.Post;
+import com.restfb.json.JsonObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,9 +12,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.ominidi.facebook.configuration.FacebookConfig;
 import org.ominidi.facebook.client.ClientFactory;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.mockito.Mockito.*;
 
@@ -45,16 +44,16 @@ public class PageFeedTest {
         repository.getConnection();
 
         verify(clientFactory).getClient();
-        verify(client).fetchConnection( page.get("id") + page.get("feed_url"), Post.class, Parameter.with("fields", Field.getForFeed()));
+        verify(client).fetchConnection( page.get("id") + page.get("feed_url"), JsonObject.class, Parameter.with("fields", Field.getForPost()));
     }
 
     @Test
     public void shouldReturnASinglePostFromTheFeed() {
-        Long id = 221946658231380L;
+        String id = "221685698257476_221946658231380";
         PageFeed repository = new PageFeed(clientFactory, config);
         repository.getObject(id);
 
         verify(clientFactory).getClient();
-        verify(client).fetchObject(id.toString(), Post.class, Parameter.with("fields", Field.getForPost()));
+        verify(client).fetchObject(id, JsonObject.class, Parameter.with("fields", Field.getForPost()));
     }
 }

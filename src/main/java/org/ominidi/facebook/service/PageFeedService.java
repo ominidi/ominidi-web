@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PageFeedService implements FeedAware {
+public class PageFeedService {
     private Feed pageFeed;
 
     @Autowired
@@ -15,13 +15,11 @@ public class PageFeedService implements FeedAware {
         this.pageFeed = pageFeed;
     }
 
-    @Override
     public Connection<Post> getFeedPosts() {
-        return pageFeed.getConnection();
+        return null;
     }
 
-    @Override
     public Post getPostById(Long id) {
-        return pageFeed.getObject(id);
+        return null;
     }
 }

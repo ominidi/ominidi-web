@@ -1,10 +1,9 @@
 package org.ominidi.facebook.repository;
 
 import com.restfb.Connection;
-import com.restfb.types.Post;
+import com.restfb.json.JsonObject;
 
 public interface Feed {
-    Post getObject(Long id);
-
-    Connection<Post> getConnection();
+    JsonObject getObject(String id);
+    Connection<JsonObject> getConnection();
 }

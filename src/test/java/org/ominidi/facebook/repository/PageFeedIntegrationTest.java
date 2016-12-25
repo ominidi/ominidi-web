@@ -1,7 +1,7 @@
 package org.ominidi.facebook.repository;
 
 import com.restfb.*;
-import com.restfb.types.Post;
+import com.restfb.json.JsonObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ominidi.Application;
@@ -19,8 +19,6 @@ import static org.junit.Assert.*;
 @ActiveProfiles(value = "test")
 public class PageFeedIntegrationTest {
 
-    private FacebookClient client;
-
     @Autowired
     private FacebookConfig facebookConfig;
 
@@ -30,18 +28,18 @@ public class PageFeedIntegrationTest {
     @Test
     public void shouldReturnAListOfPostFromTheFeed() {
         PageFeed repository = new PageFeed(clientFactory, facebookConfig);
-        Connection<Post> connection = repository.getConnection();
+        Connection<JsonObject> connection = repository.getConnection();
 
         assertNotNull(connection);
     }
 
     @Test
     public void shouldReturnASinglePostFromTheFeed() {
-        Long id = 221946658231380L;
+        String id = "221685698257476_221946658231380";
         PageFeed repository = new PageFeed(clientFactory, facebookConfig);
-        Post post = repository.getObject(id);
+        JsonObject json = repository.getObject(id);
 
-        assertNotNull(post);
-        assertEquals(id.toString(), post.getId());
+        assertNotNull(json);
+        assertEquals(id,json.get("id"));
     }
 }

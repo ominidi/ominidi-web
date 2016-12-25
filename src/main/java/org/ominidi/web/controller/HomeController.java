@@ -9,10 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 public class HomeController {
@@ -27,7 +23,7 @@ public class HomeController {
     }
 
     @GetMapping(value = "/home", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Connection<Post> index()  {
+    public Object index()  {
         PageFeed feed = new PageFeed(clientFactory, facebookConfig);
         return feed.getConnection();
     }

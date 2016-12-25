@@ -11,13 +11,11 @@ public enum Field {
     TYPE,
     LINK,
     PERMALINK_URL,
-    NAME,
     PICTURE,
     FULL_PICTURE,
-    IMAGES,
     MESSAGE;
 
-    public static final String getForFeed() {
+    public static final String getForPost() {
         List<String> fields = Arrays
                 .asList(ID, OBJECT_ID, CREATED_TIME, TYPE, LINK, PERMALINK_URL, PICTURE, FULL_PICTURE, MESSAGE)
                 .stream()
@@ -26,15 +24,6 @@ public enum Field {
 
         return String.join(",", fields);
     }
-
-    public static final String getForPost() {
-        List<String> fields = Arrays
-                .asList(ID, CREATED_TIME, LINK, PICTURE, IMAGES, NAME)
-                .stream()
-                .map((Field field) -> field.toString())
-                .collect(Collectors.toList());
-
-        return String.join(",", fields);    }
 
     @Override
     public String toString() {
