@@ -1,5 +1,5 @@
 package org.ominidi.facebook.mapper;
 
-public interface FromType<T, X> {
-    X fromType(T toMap);
+public interface FromType<T, E> {
+    E fromType(T toMap);
 }
