@@ -18,7 +18,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -46,7 +45,6 @@ public class FeedMapperTest {
         FeedMapper mapper = new FeedMapper(new PostMapper());
 
         Feed<Post> feed = mapper.fromType(connection);
-
         assertEquals(connection.getData().size(), feed.size().intValue());
     }
 }

@@ -1,7 +1,5 @@
 package org.ominidi.web.controller;
 
-import com.restfb.Connection;
-import com.restfb.types.Post;
 import org.ominidi.facebook.configuration.FacebookConfig;
 import org.ominidi.facebook.client.ClientFactory;
 import org.ominidi.facebook.repository.PageFeed;

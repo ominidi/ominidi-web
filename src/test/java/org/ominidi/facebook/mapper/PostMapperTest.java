@@ -33,5 +33,6 @@ public class PostMapperTest {
         assertEquals(jsonObject.getString("permalink_url"), post.getPermalinkUrl());
         assertEquals(jsonObject.getString("picture"), post.getPicture());
         assertEquals(jsonObject.getString("full_picture"), post.getFullPicture());
+        assertEquals(jsonObject.getString("message"), post.getMessage());
     }
 }
