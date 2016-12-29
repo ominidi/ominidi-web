@@ -1,5 +1,6 @@
 package org.ominidi.domain.model;
 
+import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,11 +12,11 @@ public class Feed<Post> implements Iterable<Post> {
 
     @Getter(AccessLevel.NONE)
     private final List<Post> posts;
-    private final String nextUrl;
-    private final String prevUrl;
+    private final URL nextUrl;
+    private final URL prevUrl;
     private final Integer size;
 
-    public Feed(List<Post> posts, String nextUrl, String prevUrl) {
+    public Feed(List<Post> posts, URL nextUrl, URL prevUrl) {
         this.posts = posts;
         this.size = posts.size();
         this.nextUrl = nextUrl;
@@ -24,10 +25,10 @@ public class Feed<Post> implements Iterable<Post> {
 
     @Override
     public Iterator<Post> iterator() {
-        return null;
+        return posts.iterator();
     }
 
     public Integer size() {
-        return null;
+        return posts.size();
     }
 }
