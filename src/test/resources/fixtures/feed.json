@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "id": "221685698257476_231706467255399",
+      "object_id": "231706467255399",
+      "created_time": "2016-12-29T18:11:54+0000",
+      "type": "photo",
+      "link": "https://www.facebook.com/ominidi.org/photos/a.221947308231315.1073741828.221685698257476/231706467255399/?type=3",
+      "permalink_url": "https://www.facebook.com/ominidi.org/posts/231706467255399:0",
+      "picture": "https://scontent.xx.fbcdn.net/v/t1.0-0/p130x130/15780706_231706467255399_5601506606055497757_n.jpg?oh=8d17ae4b144b2926acc4e8960e3a3048&oe=58E7BC00",
+      "full_picture": "https://scontent.xx.fbcdn.net/v/t1.0-9/p720x720/15780706_231706467255399_5601506606055497757_n.jpg?oh=21ce1271c5f3ea90d99df2fd38205af3&oe=58F5F3FF",
+      "message": "Sangue nel sangue;\nin cammino."
+    },
+    {
+      "id": "221685698257476_221946658231380",
+      "object_id": "221946658231380",
+      "created_time": "2016-12-07T18:56:42+0000",
+      "type": "photo",
+      "link": "https://www.facebook.com/ominidi.org/photos/a.221947308231315.1073741828.221685698257476/221946658231380/?type=3",
+      "permalink_url": "https://www.facebook.com/ominidi.org/posts/221946658231380:0",
+      "picture": "https://scontent.xx.fbcdn.net/v/t1.0-0/p130x130/15350731_221946658231380_7655843372792046975_n.jpg?oh=f2dec9cfe19a7ad70d48f1cbd33cf965&oe=59241A39",
+      "full_picture": "https://scontent.xx.fbcdn.net/v/t1.0-9/p720x720/15350731_221946658231380_7655843372792046975_n.jpg?oh=9ead8f1a72d99175451d18d272fdfc13&oe=58E550C6",
+      "message": "Gli astrolopicheco (Australopithecus Dart, 1925) sono un genere estinto di primati della famiglia degli ominidi, che si ritiene appartenente alla linea evolutiva dell'uomo.\n\nIl nome significa \"scimmia del sud\" (dal latino australis, \"meridionale\" e dal greco \u03c0\u03af\u03b8\u03b7\u03ba\u03bf\u03c2, \"scimmia\").\n\nGli australopitechi apparvero all'incirca 4,2 milioni di anni fa con l'Australopithecus anamensis (da alcuni autori ascrivibile per\u00f2 al genere Praeanthropus) ed ebbero un certo successo evolutivo divenendo assai diffusi in Africa, fino ad estinguersi completamente circa 2 milioni di anni fa.\n\nLe attuali conoscenze sull'origine dell'uomo ci permettono di tracciare, nelle sue tappe essenziali, la storia evolutiva della famiglia di primati di cui facciamo parte, quella degli ominidi, a iniziare dalle fasi molto antiche in cui comparvero gli Australopitechi, probabilmente di poco posteriori al punto di separazione dalla linea che ha condotto ai nostri parenti pi\u00f9 prossimi, le scimmie antropomorfe africane."
+    }
+  ],
+  "paging": {
+    "previous": "https://graph.facebook.com/v2.8/221685698257476/feed?fields=id,object_id,created_time,type,link,permalink_url,picture,full_picture,message&format=json&since=1483035114&access_token=253231091758727|I3y2JqlMVz1eTEneDhFZ8FS6VcE&limit=25&__paging_token=enc_AdBwAFccgbBRqrLhKs0ZAItZA41HhBuR9oCCLox5tpBQty6zNhExS2CmiaOiG19CDtFGUSPm6XonltpH5jX2O6Y289sLFEdcZAMGjx0UwZCeZAcMfAAZDZD&__previous=1",
+    "next": "https://graph.facebook.com/v2.8/221685698257476/feed?fields=id,object_id,created_time,type,link,permalink_url,picture,full_picture,message&format=json&access_token=253231091758727|I3y2JqlMVz1eTEneDhFZ8FS6VcE&limit=25&until=1481137002&__paging_token=enc_AdAqTbjEyED3mQ71o6WewovlvxzEcTLx7MkZBKC4HxZANFcoXaxNsonvZBOxkyv1kBLkVHPPgh5wUVEZCl4SVmkgXHNCzbHn1KALCIQdoKLjdiqBwAZDZD"
+  }
+}

@@ -29,6 +29,11 @@ public class PageFeed implements Feed {
     }
 
     @Override
+    public Connection<JsonObject> getConnection(String connectionPageUrl) {
+        return client.fetchConnectionPage(connectionPageUrl, JsonObject.class);
+    }
+
+    @Override
     public JsonObject getObject(String id) {
         return client.fetchObject(id, JsonObject.class, Parameter.with("fields", Field.getForPost()));
     }
