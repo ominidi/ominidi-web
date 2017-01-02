@@ -2,7 +2,9 @@ package org.ominidi.facebook.mapper;
 
 import com.restfb.json.JsonObject;
 import org.ominidi.domain.model.Post;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PostMapper implements FromType<JsonObject, Post> {
 
     @Override

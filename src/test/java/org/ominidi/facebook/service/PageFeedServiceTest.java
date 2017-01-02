@@ -1,42 +1,84 @@
-/*
 package org.ominidi.facebook.service;
 
-import com.restfb.types.Post;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.ominidi.facebook.repository.Feed;
+import com.restfb.Connection;
+import com.restfb.json.JsonObject;
+import org.ominidi.domain.model.Feed;
+import org.ominidi.domain.model.Post;
+import org.ominidi.facebook.mapper.FeedMapper;
+import org.ominidi.facebook.mapper.PostMapper;
+import org.ominidi.facebook.repository.ConnectionAware;
 
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PageFeedServiceTest {
+    @Mock
+    private Connection<JsonObject> connection;
 
     @Mock
-    private Feed feed;
+    private ConnectionAware pageFeed;
+
+    @Mock
+    private FeedMapper feedMapper;
+
+    @Mock
+    private PostMapper postMapper;
+
+    @Mock
+    private JsonObject jsonObject;
+
+    @Mock
+    private Feed<Post> feed;
+
+    @Mock
+    private Post post;
 
     @Test
     public void shouldReturnAListOfPosts() {
-        FeedAware service = new PageFeedService(feed);
-        service.getFeedPosts();
+        when(pageFeed.getConnection()).thenReturn(connection);
+        when(feedMapper.fromType(connection)).thenReturn(feed);
 
-        verify(feed).getConnection();
+        FeedAware service = new PageFeedService(pageFeed, feedMapper, postMapper);
+        Feed<Post> result = service.getFeed();
+
+        verify(pageFeed).getConnection();
+        verify(feedMapper).fromType(connection);
+
+        assertNotNull(result);
+    }
+
+    @Test
+    public void shouldReturnAListOfPostsGiveAFeedUrl() {
+        String feedUrl = "http://www.feed.it";
+        when(pageFeed.getConnection(feedUrl)).thenReturn(connection);
+        when(feedMapper.fromType(connection)).thenReturn(feed);
+
+        FeedAware service = new PageFeedService(pageFeed, feedMapper, postMapper);
+        Feed<Post> result = service.getFeed(feedUrl);
+
+        verify(pageFeed).getConnection(feedUrl);
+        verify(feedMapper).fromType(connection);
+
+        assertNotNull(result);
     }
 
     @Test
     public void shouldReturnASinglePost() {
-        Long id = 221946658231380L;
-        Post post = new Post();
-        post.setId(id.toString());
-        when(feed.getObject(id)).thenReturn(post);
+        String id = "221685698257476_221946658231380";
+        when(pageFeed.getObject(id)).thenReturn(jsonObject);
+        when(postMapper.fromType(jsonObject)).thenReturn(post);
 
-        FeedAware service = new PageFeedService(feed);
+        FeedAware service = new PageFeedService(pageFeed, feedMapper, postMapper);
         Post result = service.getPostById(id);
 
-        verify(feed).getObject(id);
-        assertEquals(id.toString(), result.getId());
+        verify(pageFeed).getObject(id);
+        verify(postMapper).fromType(jsonObject);
+
+        assertNotNull(result);
     }
 }
-*/

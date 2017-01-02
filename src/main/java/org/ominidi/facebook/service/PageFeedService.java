@@ -1,25 +1,40 @@
 package org.ominidi.facebook.service;
 
-import com.restfb.Connection;
-import com.restfb.types.Post;
-import org.ominidi.facebook.repository.Feed;
+import org.ominidi.domain.model.Feed;
+import org.ominidi.domain.model.Post;
+import org.ominidi.facebook.mapper.FeedMapper;
+import org.ominidi.facebook.mapper.PostMapper;
+import org.ominidi.facebook.repository.ConnectionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PageFeedService {
-    private Feed pageFeed;
+public class PageFeedService implements FeedAware {
+    private ConnectionAware pageFeed;
+
+    private FeedMapper feedMapper;
+
+    private PostMapper postMapper;
 
     @Autowired
-    public PageFeedService(Feed pageFeed) {
+    public PageFeedService(ConnectionAware pageFeed, FeedMapper feedMapper, PostMapper postMapper) {
         this.pageFeed = pageFeed;
+        this.feedMapper = feedMapper;
+        this.postMapper = postMapper;
     }
 
-    public Connection<Post> getFeedPosts() {
-        return null;
+    @Override
+    public Feed<Post> getFeed() {
+        return feedMapper.fromType(pageFeed.getConnection());
     }
 
-    public Post getPostById(Long id) {
-        return null;
+    @Override
+    public Feed<Post> getFeed(String feedUrl) {
+        return feedMapper.fromType(pageFeed.getConnection(feedUrl));
+    }
+
+    @Override
+    public Post getPostById(String id) {
+        return postMapper.fromType(pageFeed.getObject(id));
     }
 }

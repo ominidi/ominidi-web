@@ -5,12 +5,14 @@ import com.restfb.json.JsonObject;
 import org.ominidi.domain.model.Feed;
 import org.ominidi.domain.model.Post;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class FeedMapper implements FromType<Connection<JsonObject>, Feed<Post>> {
     private PostMapper postMapper;
 
