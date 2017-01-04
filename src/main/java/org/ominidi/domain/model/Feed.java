@@ -3,14 +3,10 @@ package org.ominidi.domain.model;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
-
-import lombok.AccessLevel;
 import lombok.Getter;
 
 @Getter
 public class Feed<Post> implements Iterable<Post> {
-
-    @Getter(AccessLevel.NONE)
     private final List<Post> posts;
     private final URL nextUrl;
     private final URL prevUrl;

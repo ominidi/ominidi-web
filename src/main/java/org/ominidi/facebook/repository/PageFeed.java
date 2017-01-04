@@ -10,7 +10,7 @@ import org.ominidi.facebook.client.ClientFactory;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class PageFeed implements Feed {
+public class PageFeed implements ConnectionAware {
     private FacebookClient client;
 
     private FacebookConfig config;
@@ -38,4 +38,3 @@ public class PageFeed implements Feed {
         return client.fetchObject(id, JsonObject.class, Parameter.with("fields", Field.getForPost()));
     }
 }
-
