@@ -1,7 +1,6 @@
 package org.ominidi.api.model;
 
 import lombok.Getter;
-import org.springframework.http.HttpStatus;
 
 @Getter
 public final class HttpError {
