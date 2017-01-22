@@ -1,4 +1,4 @@
-package org.ominidi.web.controller.configuration;
+package org.ominidi.web.configuration;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
