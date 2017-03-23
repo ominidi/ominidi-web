@@ -29,7 +29,12 @@ public class FeedController {
         return pageFeedService.getFeed().orElseThrow(() -> new ConnectionException(Errors.CONNECTION_PROBLEM));
     }
 
-    @GetMapping(value = "/feed/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/feed/{pageUrl}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Feed<Post> getFeedByPageUrl() {
+        return pageFeedService.getFeed().orElseThrow(() -> new ConnectionException(Errors.CONNECTION_PROBLEM));
+    }
+
+    @GetMapping(value = "/post/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Post getPost(@PathVariable(value = "id") String id) {
         return pageFeedService.getPostById(id).orElseThrow(() -> new PostNotFoundException(Errors.postNotFound(id)));
     }

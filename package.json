@@ -1,0 +1,22 @@
+{
+  "name": "ominidi.org",
+  "version": "0.1.0",
+  "description": "Omini.org main application",
+  "main": "index.js",
+  "repository": "git@github.com:ominidi/ominidi.org.git",
+  "author": "gabrieledarrigo <darrigo.g@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/gulp": "^4.0.2",
+    "@types/gulp-sass": "^0.0.30",
+    "@types/gulp-typescript": "^0.0.33",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-typescript": "^3.1.6",
+    "node-sass": "^4.5.1",
+    "typescript": "^2.2.1"
+  },
+  "dependencies": {}
+}
