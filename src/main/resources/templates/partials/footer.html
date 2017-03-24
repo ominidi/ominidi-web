@@ -8,7 +8,7 @@
         packages: {'js': {defaultExtension: 'js'}}
     });
 
-    SystemJS.import('/dist/js/bundle.js').then(function () {
+    SystemJS.import('/js/bundle.js').then(function () {
         System.import('index');
     }).catch(function (err) {
         console.error(err);

@@ -1,0 +1,110 @@
+h1, .title-1,
+h2, .title-2,
+h3, .title-3,
+h4, .title-4 {
+  font-weight: inherit;
+  margin: 1.414em 0 0.5em;
+  line-height: 1.2;
+}
+
+h1,
+.title-1 {
+  margin-top: 0;
+  font-size: 5.063em;
+}
+
+h2,
+.title-2 {
+  font-size: 3.375em;
+}
+
+h3,
+.title-3 {
+  font-size: 2.25em;
+}
+
+h4,
+.title-4 {
+  font-size: 1.5em;
+}
+
+h5,
+.title-5 {
+  font-size: 1em;
+}
+
+h6,
+.title-6 {
+  font-size: 0.667em;
+}
+
+p {
+  font-size: 1em;
+  margin-bottom: 1.3em;
+}
+
+a,
+.link {
+  color: #B4FF00;
+  text-decoration: none;
+}
+
+a:hover,
+.link:hover {
+  text-decoration: underline;
+}
+
+a:visited,
+.link:visited {
+  color: #B4FF00;
+}
+
+@font-face {
+  font-family: 'LiberationSans';
+  src: url("/fonts/LiberationSans-Regular.woff") format("woff"), url("/fonts/LiberationSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 1em;
+}
+
+body {
+  background-color: #2E2E2E;
+  color: #95989A;
+  font-family: 'LiberationSans', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.main {
+  margin: 0;
+  padding: 0;
+}
+
+.section-container {
+  padding: 27px 29px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding: 33px 180px;
+    max-width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
