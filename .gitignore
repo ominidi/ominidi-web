@@ -1,25 +1,32 @@
-# Intellij
+## Editor
 .idea/
 *.iml
 *.iws
+.vscode
 
-# OSX
+## OSX
 .DS_Store
 
-# Windows
+## Windows
 Thumbs.db
 Desktop.ini
 
-# Maven
+## Maven
 log/
 target/
-
 *.class
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+## Package Files
 *.jar
 *.war
 *.ear
+
+## NodeJS
+node_modules
+logs
+*.log
+.npm
+npm-debug.log*
+
+## Assets
+src/main/resources/static/dist/

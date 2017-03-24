@@ -2,4 +2,15 @@
     <small>ominidi.org</small>
 </footer>
 
-<script src="/js/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.20.10/system.js"></script>
+<script>
+    System.config({
+        packages: {'js': {defaultExtension: 'js'}}
+    });
+
+    SystemJS.import('/dist/js/bundle.js').then(function () {
+        System.import('index');
+    }).catch(function (err) {
+        console.error(err);
+    });
+</script>

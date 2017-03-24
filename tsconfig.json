@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "system",
+    "outFile": "bundle.js",
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "es2015"
+  },
+  "include": [
+    "src/main/resources/static/js/**/*"
+  ],
+  "exclude": [
+    "gulpfile.js",
+    "node_modules"
+  ]
+}
