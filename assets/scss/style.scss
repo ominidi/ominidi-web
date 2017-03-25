@@ -25,11 +25,12 @@ body {
 }
 
 html {
+    background: url("/img/concrete_seamless.png") repeat;
     font-size: 1em;
 }
 
 body {
-    background-color: $grey-800;
+    background-color: rgba($black, 0.85);
     color: $grey-500;
     font-family: 'LiberationSans', Arial, Helvetica, sans-serif;
     font-weight: 400;

@@ -46,23 +46,25 @@
 .main__header {
   display: flex;
   flex-direction: column;
+  height: 105px;
   justify-content: center;
   position: relative;
 }
 
 @media (min-width: 1024px) {
   .main__header {
-    height: 600px;
+    height: 550px;
   }
 }
 
 .main__title {
   color: #FFF;
+  font-size: 2.875em;
   font-weight: bold;
   margin: 0;
   position: relative;
   text-align: center;
-  text-shadow: 1px 1px 0 #FF0077;
+  text-shadow: 1px 1px 0 #000;
   text-transform: uppercase;
 }
 
@@ -178,6 +180,25 @@ a:visited,
   background-color: #EEFF00;
 }
 
+.section {
+  margin: 0 auto;
+  padding: 27px 29px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 33px 180px;
+    max-width: 1024px;
+  }
+}
+
+.section__title {
+  color: #FFF;
+  margin: 0;
+  text-align: center;
+}
+
 .imaginery {
   background-position: center center;
   background-repeat: no-repeat;
@@ -191,8 +212,45 @@ a:visited,
   width: 100%;
 }
 
+.main {
+  margin: 0;
+  padding: 0;
+}
+
+.main__header {
+  display: flex;
+  flex-direction: column;
+  height: 105px;
+  justify-content: center;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .main__header {
+    height: 550px;
+  }
+}
+
+.main__title {
+  color: #FFF;
+  font-size: 2.875em;
+  font-weight: bold;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  text-shadow: 1px 1px 0 #000;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .main__title {
+    font-size: 3.375em;
+  }
+}
+
 .navbar {
   background-color: #FFF;
+  box-shadow: 0 3px 6px #000;
   height: 45px;
 }
 
@@ -208,31 +266,47 @@ a:visited,
 
 .navbar__menu__item {
   height: 100%;
-  width: 40px;
+  width: 45px;
   text-align: center;
 }
 
 .navbar__menu__link {
+  background: center no-repeat;
   color: #000;
   display: block;
   height: 100%;
-  line-height: 40px;
 }
 
 .navbar__menu__link:hover {
   text-decoration: none;
 }
 
+.navbar__menu__link.to-manifest {
+  background-image: url("/img/icons/ominide_1.svg");
+}
+
 .navbar__menu__link.to-manifest:hover, .navbar__menu__link.to-manifest.current {
   background-color: #FF0077;
+}
+
+.navbar__menu__link.to-photos {
+  background-image: url("/img/icons/ominide_2.svg");
 }
 
 .navbar__menu__link.to-photos:hover, .navbar__menu__link.to-photos.current {
   background-color: #B4FF00;
 }
 
+.navbar__menu__link.to-attributions {
+  background-image: url("/img/icons/ominide_3.svg");
+}
+
 .navbar__menu__link.to-attributions:hover, .navbar__menu__link.to-attributions.current {
   background-color: #EEFF00;
+}
+
+.navbar__menu__link.to-downloads {
+  background-image: url("/img/icons/ominide_4.svg");
 }
 
 .navbar__menu__link.to-downloads:hover, .navbar__menu__link.to-downloads.current {
@@ -265,11 +339,12 @@ body {
 }
 
 html {
+  background: url("/img/concrete_seamless.png") repeat;
   font-size: 1em;
 }
 
 body {
-  background-color: #2E2E2E;
+  background-color: rgba(0, 0, 0, 0.85);
   color: #95989A;
   font-family: 'LiberationSans', Arial, Helvetica, sans-serif;
   font-weight: 400;

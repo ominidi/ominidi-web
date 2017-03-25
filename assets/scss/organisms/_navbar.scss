@@ -1,5 +1,6 @@
 .navbar {
     background-color: $white;
+    box-shadow: 0 3px 6px $black;
     height: 45px;
 
     &__menu {
@@ -13,40 +14,54 @@
 
         &__item {
             height: 100%;
-            width: 40px;
+            width: 45px;
             text-align: center;
         }
 
         &__link {
+            background: center no-repeat;
             color: $black;
             display: block;
             height: 100%;
-            line-height: 40px;
 
             &:hover {
                 text-decoration: none;
             }
 
-            &.to-manifest:hover,
-            &.to-manifest.current {
-                background-color: $magenta-500;
+            &.to-manifest {
+                background-image: url("/img/icons/ominide_1.svg");
+
+                &:hover,
+                &.current {
+                    background-color: $magenta-500;
+                }
             }
 
-            &.to-photos:hover,
-            &.to-photos.current {
-                background-color: $green-500;
+            &.to-photos {
+                background-image: url("/img/icons/ominide_2.svg");
 
+                &:hover,
+                &.current {
+                    background-color: $green-500;
+                }
             }
 
-            &.to-attributions:hover,
-            &.to-attributions.current {
-                background-color: $yellow-500;
+            &.to-attributions {
+                background-image: url("/img/icons/ominide_3.svg");
 
+                &:hover,
+                &.current {
+                    background-color: $yellow-500;
+                }
             }
 
-            &.to-downloads:hover,
-            &.to-downloads.current {
-                background-color: $blue-500;
+            &.to-downloads {
+                background-image: url("/img/icons/ominide_4.svg");
+
+                &:hover,
+                &.current {
+                    background-color: $blue-500;
+                }
             }
 
             .i,
