@@ -1,0 +1,59 @@
+.navbar {
+    background-color: $white;
+    height: 45px;
+
+    &__menu {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+
+        &__item {
+            height: 100%;
+            width: 40px;
+            text-align: center;
+        }
+
+        &__link {
+            color: $black;
+            display: block;
+            height: 100%;
+            line-height: 40px;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            &.to-manifest:hover,
+            &.to-manifest.current {
+                background-color: $magenta-500;
+            }
+
+            &.to-photos:hover,
+            &.to-photos.current {
+                background-color: $green-500;
+
+            }
+
+            &.to-attributions:hover,
+            &.to-attributions.current {
+                background-color: $yellow-500;
+
+            }
+
+            &.to-downloads:hover,
+            &.to-downloads.current {
+                background-color: $blue-500;
+            }
+
+            .i,
+            .icon,
+            span {
+                vertical-align: middle;
+            }
+        }
+    }
+}
