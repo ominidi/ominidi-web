@@ -1,6 +1,6 @@
 .section {
     margin: 0 auto;
-    padding: 27px 29px;
+    padding: 27px 0;
     width: 100%;
 
     @include breakpoint(min-width 1024px) {
