@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WebController {
-    @GetMapping("/manifesto")
+    @GetMapping({"/", "/manifesto"})
     public ModelAndView index()  {
         ModelAndView modelAndView = new ModelAndView("manifest");
         return modelAndView;

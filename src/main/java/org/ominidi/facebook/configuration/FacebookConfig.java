@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 @Configuration
-@ConfigurationProperties(locations = "classpath:config/facebook.yml", prefix = "facebook")
+@ConfigurationProperties(prefix = "facebook")
 public class FacebookConfig {
     private String graphAccessTokenUri;
     private Map<String, String> page = new HashMap<>();

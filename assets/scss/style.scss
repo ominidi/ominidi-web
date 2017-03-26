@@ -1,5 +1,6 @@
 //@import "../../node_modules/normalize.css/_normalize.css";
 @import "../../node_modules/breakpoint-sass/stylesheets/breakpoint";
+@import "shared/mixins";
 @import "atoms";
 @import "molecules";
 @import "organisms";
@@ -26,7 +27,11 @@ body {
 
 html {
     background: url("/img/concrete_seamless.png") repeat;
-    font-size: 1em;
+    font-size: 15px;
+
+    @include breakpoint(min-width 1024px) {
+        font-size: 16px;
+    }
 }
 
 body {
@@ -35,8 +40,4 @@ body {
     font-family: 'LiberationSans', Arial, Helvetica, sans-serif;
     font-weight: 400;
     line-height: 1.45;
-}
-
-.text-center {
-    text-align: center;
 }

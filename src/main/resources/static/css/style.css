@@ -1,3 +1,15 @@
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
 .color-black {
   color: #000;
 }
@@ -72,6 +84,10 @@
   .main__title {
     font-size: 3.375em;
   }
+}
+
+.main__footer {
+  padding: 10px;
 }
 
 .section {
@@ -248,6 +264,10 @@ a:visited,
   }
 }
 
+.main__footer {
+  padding: 10px;
+}
+
 .navbar {
   background-color: #FFF;
   box-shadow: 0 3px 6px #000;
@@ -340,7 +360,13 @@ body {
 
 html {
   background: url("/img/concrete_seamless.png") repeat;
-  font-size: 1em;
+  font-size: 15px;
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -349,10 +375,6 @@ body {
   font-family: 'LiberationSans', Arial, Helvetica, sans-serif;
   font-weight: 400;
   line-height: 1.45;
-}
-
-.text-center {
-  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

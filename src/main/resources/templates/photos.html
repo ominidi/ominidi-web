@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
-    {{> partials/meta }}
+    <meta th:replace="partials/meta">
 </head>
 <body>
-    {{> partials/header }}
+    <header th:replace="partials/header"></header>
 
     <main id="main" class="main" role="main">
         <section class="section">
@@ -14,8 +14,8 @@
                 </h2>
             </header>
         </section>
-    </main>
 
-    {{> partials/footer }}
+        <footer th:replace="partials/footer"></footer>
+    </main>
 </body>
 </html>
