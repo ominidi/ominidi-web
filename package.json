@@ -18,5 +18,8 @@
     "node-sass": "^4.5.1",
     "typescript": "^2.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "normalize.css": "^5.0.0"
+  }
 }

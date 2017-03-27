@@ -1,0 +1,25 @@
+.btn {
+    background-color: $white;
+    border: none;
+    box-shadow: 0 3px 6px $black;
+    color: $black;
+    display: inline-block;
+    padding: 12px 23px;
+    text-align: center;
+
+    &--square {
+        padding: 12px 12px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &--primary {
+        background-color: $white;
+    }
+
+    &--secondary {
+        background-color: $yellow-500;
+    }
+}

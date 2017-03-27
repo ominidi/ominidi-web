@@ -29,4 +29,5 @@ logs
 npm-debug.log*
 
 ## Assets
-src/main/resources/static/dist/
+src/main/resources/static/css/
+src/main/resources/static/js/

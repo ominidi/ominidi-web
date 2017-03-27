@@ -1,0 +1,75 @@
+.navbar {
+    background-color: $white;
+    box-shadow: 0 3px 6px $black;
+    height: 45px;
+
+    &__menu {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+
+        &__item {
+            height: 100%;
+            width: 45px;
+            text-align: center;
+        }
+
+        &__link {
+            background: center no-repeat;
+            background-size: contain;
+            color: $black;
+            display: block;
+            height: 100%;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            &.to-manifest {
+                background-image: url("/img/icons/ominide_1.svg");
+
+                &:hover,
+                &.current {
+                    background-color: $magenta-500;
+                }
+            }
+
+            &.to-photos {
+                background-image: url("/img/icons/ominide_2.svg");
+
+                &:hover,
+                &.current {
+                    background-color: $green-500;
+                }
+            }
+
+            &.to-attributions {
+                background-image: url("/img/icons/ominide_3.svg");
+
+                &:hover,
+                &.current {
+                    background-color: $yellow-500;
+                }
+            }
+
+            &.to-downloads {
+                background-image: url("/img/icons/ominide_4.svg");
+
+                &:hover,
+                &.current {
+                    background-color: $blue-500;
+                }
+            }
+
+            .i,
+            .icon,
+            span {
+                vertical-align: middle;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@function em($value, $root: 16px) {
+    @return #{$value/$root}em;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}

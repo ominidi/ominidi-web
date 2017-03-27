@@ -1,0 +1,31 @@
+.masthead {
+    display: flex;
+    flex-direction: column;
+    height: 105px;
+    justify-content: center;
+    position: relative;
+
+    @include breakpoint(min-width 1024px) {
+        height: 550px;
+    }
+    
+    &__title {
+        color: $white;
+        font-size: 2.875em;
+        font-weight: bold;
+        margin: 0;
+        position: relative;
+        text-align: center;
+        text-shadow: 1px 1px 0 $black;
+        text-transform: uppercase;
+
+        @include breakpoint(min-width 1024px) {
+            font-size: 3.375em;
+        }
+    }
+
+    &__footer {
+        background-color: $black;
+        padding: 10px;
+    }
+}

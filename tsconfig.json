@@ -9,7 +9,7 @@
     "target": "es2015"
   },
   "include": [
-    "src/main/resources/static/js/**/*"
+    "assets/js/**/*"
   ],
   "exclude": [
     "gulpfile.js",

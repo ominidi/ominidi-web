@@ -1,0 +1,31 @@
+$black:         #000;
+$white:         #FFF;
+
+$magenta-500:   #FF0077;
+$yellow-500:    #EEFF00;
+$green-500:     #B4FF00;
+$blue-500:      #0019FF;
+
+$grey-800:      #2E2E2E;
+$grey-500:      #95989A;
+$grey-200:      #E2E2E2;
+$grey-100:      #EFEFEF;
+
+$colors: (
+    black: #000,
+    white: #FFF,
+    magenta-500: #FF0077,
+    yellow-500: #EEFF00,
+    green-500: #B4FF00,
+    blue-500: #0019FF,
+    grey-800: #2E2E2E,
+    grey-500: #95989A,
+    grey-200: #E2E2E2,
+    grey-100: #EFEFEF,
+);
+
+@each $name, $color in $colors {
+    .color-#{$name} {
+        color: $color;
+    }
+}

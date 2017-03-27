@@ -1,0 +1,59 @@
+h1, .title-1,
+h2, .title-2,
+h3, .title-3,
+h4, .title-4 {
+    font-weight: inherit;
+    margin: 1.414em 0 0.5em;
+    line-height: 1.2;
+}
+
+h1,
+.title-1 {
+    margin-top: 0;
+    font-size: 5.063em;
+}
+
+h2,
+.title-2 {
+    font-size: 3.375em;
+}
+
+h3,
+.title-3 {
+    font-size: 2.25em;
+}
+
+h4,
+.title-4 {
+    font-size: 1.5em;
+}
+
+h5,
+.title-5 {
+    font-size: 1em;
+}
+
+h6,
+.title-6 {
+    font-size: 0.667em;
+
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 1.3em;
+}
+
+a,
+.link {
+    color: $green-500;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:visited {
+        color: inherit;
+    }
+}

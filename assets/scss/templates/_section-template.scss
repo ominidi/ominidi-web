@@ -1,0 +1,16 @@
+.section-template {
+    margin: 0 auto;
+    padding: 27px 15px;
+    width: 100%;
+
+    @include breakpoint(min-width 1024px) {
+        padding: 33px 25px;
+        max-width: 1024px;
+    }
+
+    &__title {
+        color: $white;
+        margin: 0;
+        text-align: center;
+    }
+}

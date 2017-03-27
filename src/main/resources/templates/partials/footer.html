@@ -1,5 +1,30 @@
-<footer>
-    <small>ominidi.org</small>
+<footer class="footer text-center">
+    <small>Ominidi.org - [[${#dates.format(#dates.createNow(), 'YYYY')}]]</small>
+
+    <article class="footer__license">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+            <img alt="Licenza Creative Commons" style="border-width:0"
+                 src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+        </a>
+
+        <br/>
+
+        <small>
+            Quest'opera è distribuita con Licenza
+
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribuzione 4.0 Internazionale
+            </a>.
+        </small>
+    </article>
+
+    <article class="footer__license">
+        <small>
+            Il codice sorgente di quest'opera è distribuito con Licenza
+            <a href="https://github.com/ominidi/ominidi.org/blob/master/LICENSE" rel="license"
+               title="Licenza MIT">MIT</a>
+        </small>
+    </article>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.20.10/system.js"></script>
@@ -8,7 +33,7 @@
         packages: {'js': {defaultExtension: 'js'}}
     });
 
-    SystemJS.import('/dist/js/bundle.js').then(function () {
+    SystemJS.import('/js/bundle.js').then(function () {
         System.import('index');
     }).catch(function (err) {
         console.error(err);
