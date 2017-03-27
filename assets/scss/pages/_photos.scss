@@ -1,0 +1,19 @@
+.photos {
+    @include breakpoint(min-width 1024px) {
+        padding: 33px 0;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint(min-width 768px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        flex: 1 0 auto;
+    }
+}

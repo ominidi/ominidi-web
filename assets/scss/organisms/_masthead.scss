@@ -1,19 +1,14 @@
-.main {
-    margin: 0;
-    padding: 0;
+.masthead {
+    display: flex;
+    flex-direction: column;
+    height: 105px;
+    justify-content: center;
+    position: relative;
 
-    &__header {
-        display: flex;
-        flex-direction: column;
-        height: 105px;
-        justify-content: center;
-        position: relative;
-
-        @include breakpoint(min-width 1024px) {
-            height: 550px;
-        }
+    @include breakpoint(min-width 1024px) {
+        height: 550px;
     }
-
+    
     &__title {
         color: $white;
         font-size: 2.875em;
