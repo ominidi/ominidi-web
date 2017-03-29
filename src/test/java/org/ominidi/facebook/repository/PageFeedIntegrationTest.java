@@ -2,6 +2,7 @@ package org.ominidi.facebook.repository;
 
 import com.restfb.*;
 import com.restfb.json.JsonObject;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ominidi.Application;
@@ -18,6 +19,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 @ActiveProfiles(value = "test")
+@Ignore
 public class PageFeedIntegrationTest {
 
     @Autowired
