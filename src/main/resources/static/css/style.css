@@ -106,11 +106,6 @@ a:hover,
   text-decoration: underline;
 }
 
-a:visited,
-.link:visited {
-  color: inherit;
-}
-
 .btn {
   background-color: #FFF;
   border: none;

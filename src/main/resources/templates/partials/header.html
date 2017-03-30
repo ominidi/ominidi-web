@@ -8,19 +8,19 @@
 <nav class="navbar">
     <ul class="navbar__menu">
         <li class="navbar__menu__item">
-            <a href="/manifesto" title="manifesto" class="navbar__menu__link to-manifest"></a>
+            <a th:href="@{/manifesto}" title="manifesto" class="navbar__menu__link to-manifest" th:classappend="${current} eq 'manifest' ? 'current'"></a>
         </li>
 
         <li class="navbar__menu__item">
-            <a href="/foto" title="foto" class="navbar__menu__link to-photos"></a>
+            <a th:href="@{/foto}" title="foto" class="navbar__menu__link to-photos" th:classappend="${current} eq 'photos' ? 'current'"></a>
         </li>
 
         <li class="navbar__menu__item">
-            <a href="/attributions" title="attributions" class="navbar__menu__link to-attributions"></a>
+            <a th:href="@{/attributions}" title="attributions" class="navbar__menu__link to-attributions" th:classappend="${current} eq 'attributions'? 'current'"></a>
         </li>
 
         <li class="navbar__menu__item">
-            <a href="/downloads" title="downloads" class="navbar__menu__link to-downloads"></a>
+            <a th:href="@{/downloads}" title="downloads" class="navbar__menu__link to-downloads" th:classappend="${current} eq 'downloads'? 'current'"></a>
         </li>
     </ul>
 </nav>
