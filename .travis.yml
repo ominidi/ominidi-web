@@ -11,7 +11,7 @@ after_success:
  - mvn package
  - if [ "$TRAVIS_BRANCH" == "master" ]; then
     mvn docker:build;
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD;
     docker tag ominidi/ominidi-web ominidi/ominidi-web:latest;
     docker push ominidi/ominidi-web:latest;
    fi
