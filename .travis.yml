@@ -13,6 +13,7 @@ before_install:
   - sudo apt-get install -y -qq yarn
 script:
   - mvn cobertura:cobertura
+  - nvm use 7
   - yarn install
   - ./node_modules/.bin/gulp sass
 after_success:
