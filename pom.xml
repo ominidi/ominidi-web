@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.ominidi</groupId>
-    <artifactId>ominidi</artifactId>
+    <artifactId>ominidi-web</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <parent>
@@ -118,8 +118,7 @@
                 <version>0.4.13</version>
                 <configuration>
                     <imageName>ominidi/${project.artifactId}</imageName>
-                    <baseImage>openjdk:8</baseImage>
-                    <entryPoint>[ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /${project.artifactId}-${project.version}.jar" ]</entryPoint>
+                    <dockerDirectory>.</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
