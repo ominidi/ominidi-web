@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public class Post {
     private final String id;
-    private final Long objectId;
+    private final String objectId;
     private final String createdTime;
     private final String type;
     private final String link;
@@ -16,7 +16,7 @@ public class Post {
 
     public Post(
             String id,
-            Long objectId,
+            String objectId,
             String createdTime,
             String type,
             String link,

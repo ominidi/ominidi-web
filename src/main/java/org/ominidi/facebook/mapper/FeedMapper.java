@@ -24,15 +24,15 @@ public class FeedMapper implements FromType<Connection<JsonObject>, Feed<Post>> 
     @Override
     public Feed<Post> fromType(Connection<JsonObject> toMap) {
         List<Post> posts = toMap.getData().stream().map(jsonObject -> new Post(
-                jsonObject.optString("id"),
-                jsonObject.optLong("object_id"),
-                jsonObject.optString("created_time"),
-                jsonObject.optString("type"),
-                jsonObject.optString("link"),
-                jsonObject.optString("permalink_url"),
-                jsonObject.optString("picture"),
-                jsonObject.optString("full_picture"),
-                jsonObject.optString("message")
+                jsonObject.getString("id", null),
+                jsonObject.getString("object_id", null),
+                jsonObject.getString("created_time", null),
+                jsonObject.getString("type", null),
+                jsonObject.getString("link", null),
+                jsonObject.getString("permalink_url", null),
+                jsonObject.getString("picture", null),
+                jsonObject.getString("full_picture", null),
+                jsonObject.getString("message", null)
         )).collect(Collectors.toList());
 
         try {

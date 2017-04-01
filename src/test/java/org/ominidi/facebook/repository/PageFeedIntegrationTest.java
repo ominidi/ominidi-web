@@ -19,7 +19,6 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 @ActiveProfiles(value = "test")
-@Ignore
 public class PageFeedIntegrationTest {
 
     @Autowired
@@ -62,7 +61,7 @@ public class PageFeedIntegrationTest {
         JsonObject json = repository.getObject(id);
 
         assertNotNull(json);
-        assertEquals(id, json.get("id"));
+        assertEquals(id, json.getString("id", null));
     }
 
     @Test(expected = ConnectionException.class)

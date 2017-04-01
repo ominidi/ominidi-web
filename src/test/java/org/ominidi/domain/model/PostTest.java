@@ -8,7 +8,7 @@ public class PostTest {
     @Test
     public void itIsAnImmutablePost() {
         String id = "221946658231380_221946658231380";
-        Long objectId = 221946658231380L;
+        String objectId = "221946658231380";
         String createdTime = "2016-12-07T18:56:42+0000";
         String type = "photo";
         String link = "https://www.facebook.com/ominidi.org/photos/a.221947308231315.1073741828.221685698257476/221946658231380/?type=3";

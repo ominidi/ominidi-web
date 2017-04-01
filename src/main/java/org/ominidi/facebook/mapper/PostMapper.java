@@ -10,15 +10,15 @@ public class PostMapper implements FromType<JsonObject, Post> {
     @Override
     public Post fromType(JsonObject jsonObject) {
         return new Post(
-                jsonObject.getString("id"),
-                jsonObject.getLong("object_id"),
-                jsonObject.getString("created_time"),
-                jsonObject.getString("type"),
-                jsonObject.getString("link"),
-                jsonObject.getString("permalink_url"),
-                jsonObject.getString("picture"),
-                jsonObject.getString("full_picture"),
-                jsonObject.getString("message")
+                jsonObject.getString("id", null),
+                jsonObject.getString("object_id", null),
+                jsonObject.getString("created_time", null),
+                jsonObject.getString("type", null),
+                jsonObject.getString("link", null),
+                jsonObject.getString("permalink_url", null),
+                jsonObject.getString("picture", null),
+                jsonObject.getString("full_picture", null),
+                jsonObject.getString("message", null)
         );
     }
 }

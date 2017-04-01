@@ -18,22 +18,8 @@ public class ClientFactory {
     public FacebookClient getClient() {
         String appId = facebookConfig.getApplication().get("app_id");
         String appSecret = facebookConfig.getApplication().get("app_secret");
-        WebRequestor webRequestor = new DefaultWebRequestor();
 
-        try {
-            WebRequestor.Response response = webRequestor.executeGet(facebookConfig.getGraphAccessTokenUri()
-                    + "?client_id="
-                    + appId
-                    + "&client_secret="
-                    + appSecret
-                    + "&grant_type=client_credentials"
-            );
-            FacebookClient.AccessToken token = DefaultFacebookClient.AccessToken.fromQueryString(response.getBody());
-            return new DefaultFacebookClient(token.getAccessToken(), appSecret, Version.VERSION_2_8);
-        } catch (IOException e) {
-            // @// TODO: 23/12/2016 to log
-        }
-        
-        return null;
+        FacebookClient.AccessToken token = new DefaultFacebookClient(Version.VERSION_2_8).obtainAppAccessToken(appId, appSecret);
+        return new DefaultFacebookClient(token.getAccessToken(), appSecret, Version.VERSION_2_8);
     }
 }

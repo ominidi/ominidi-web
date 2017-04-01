@@ -19,7 +19,7 @@ public class FeedTest {
     public void setUp() throws MalformedURLException {
         post = new Post(
                 "221946658231380_221946658231380",
-                221946658231380L,
+                "221946658231380",
                 "2016-12-07T18:56:42+0000",
                 "photo",
                 "https://www.facebook.com/ominidi.org/link",
