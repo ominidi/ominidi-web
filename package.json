@@ -1,7 +1,7 @@
 {
   "name": "ominidi.org",
   "version": "0.1.0",
-  "description": "Omini.org main application",
+  "description": "Ominidi.org main application",
   "main": "index.js",
   "repository": "git@github.com:ominidi/ominidi.org.git",
   "author": "gabrieledarrigo <darrigo.g@gmail.com>",
@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "breakpoint-sass": "^2.7.1",
-    "normalize.css": "^5.0.0"
+    "normalize.css": "^6.0.0"
   }
 }

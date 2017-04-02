@@ -21,8 +21,8 @@ after_success:
  - if [ "$TRAVIS_BRANCH" == "master" ]; then
     mvn -q docker:build;
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-    docker tag ominidi/ominidi-web ominidi/ominidi-web:${TRAVIS_BUILD_NUMBER};
-    docker push ominidi/ominidi-web:latest;
+    docker tag ominidi/ominidi-web ominidi/ominidi-web:$TRAVIS_BUILD_NUMBER;
+    docker push ominidi/ominidi-web:$TRAVIS_BUILD_NUMBER;
    fi
 notifications:
  irc: "chat.freenode.net#ominidi.org"
