@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:8-alpine
 VOLUME /tmp
 ADD ominidi-web-1.0-SNAPSHOT.jar ominidi-web-1.0-SNAPSHOT.jar
 RUN ["sh", "-c", "touch /ominidi-web-1.0-SNAPSHOT.jar"]
