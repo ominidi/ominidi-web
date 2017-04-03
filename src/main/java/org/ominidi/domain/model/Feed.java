@@ -8,11 +8,11 @@ import lombok.Getter;
 @Getter
 public class Feed<Post> implements Iterable<Post> {
     private final List<Post> posts;
-    private final URL nextUrl;
-    private final URL prevUrl;
+    private final String nextUrl;
+    private final String prevUrl;
     private final Integer size;
 
-    public Feed(List<Post> posts, URL nextUrl, URL prevUrl) {
+    public Feed(List<Post> posts, String nextUrl, String prevUrl) {
         this.posts = posts;
         this.size = posts.size();
         this.nextUrl = nextUrl;

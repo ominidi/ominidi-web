@@ -253,6 +253,7 @@ a:hover,
 
 .navbar__menu__item {
   height: 100%;
+  margin: 0 9.25px;
   width: 45px;
   text-align: center;
 }

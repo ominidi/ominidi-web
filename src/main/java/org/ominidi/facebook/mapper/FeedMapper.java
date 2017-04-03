@@ -35,10 +35,6 @@ public class FeedMapper implements FromType<Connection<JsonObject>, Feed<Post>> 
                 jsonObject.getString("message", null)
         )).collect(Collectors.toList());
 
-        try {
-            return new Feed<>(posts, new URL(toMap.getNextPageUrl()), new URL(toMap.getPreviousPageUrl()));
-        } catch (MalformedURLException e) {
-            return null;
-        }
+        return new Feed<>(posts, toMap.getNextPageUrl(), toMap.getPreviousPageUrl());
     }
 }

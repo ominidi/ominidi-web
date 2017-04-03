@@ -12,8 +12,8 @@ import static org.junit.Assert.*;
 
 public class FeedTest {
     private Post post;
-    private URL next;
-    private URL prev;
+    private String next;
+    private String prev;
 
     @Before
     public void setUp() throws MalformedURLException {
@@ -28,8 +28,8 @@ public class FeedTest {
                 "https://www.facebook.com/ominidi.org/photos/full",
                 "this is a message"
         );
-        next = new URL("http://next");
-        prev = new URL("http://prev");
+        next = "http://next";
+        prev = "http://prev";
     }
 
     @Test
