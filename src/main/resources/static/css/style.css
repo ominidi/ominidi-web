@@ -360,6 +360,21 @@ a:hover,
   flex: 1 0 auto;
 }
 
+.error__content {
+  min-height: 300px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .error__content {
+    min-height: 550px;
+  }
+}
+
+.error__content .imaginery {
+  filter: grayscale(100%);
+}
+
 @font-face {
   font-family: 'LiberationSans';
   src: url("/fonts/LiberationSans-Regular.woff") format("woff"), url("/fonts/LiberationSans-Regular.ttf") format("truetype");
