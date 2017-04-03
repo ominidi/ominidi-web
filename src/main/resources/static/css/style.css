@@ -239,6 +239,8 @@ a:hover,
   background-color: #FFF;
   box-shadow: 0 3px 6px #000;
   height: 45px;
+  position: relative;
+  z-index: 1;
 }
 
 .navbar__menu {
