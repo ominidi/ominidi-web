@@ -20,7 +20,7 @@ describe('#Photo', () => {
         assert.equal(wrapper.prop('data-id'), data.id);
         assert.equal(wrapper.find('.card').length, 1);
         assert.equal(wrapper.find('.card__picture').length, 1);
-        assert.equal(wrapper.find('.card__picture img').prop('src'), data.full_picture);
+        assert.equal(wrapper.find('.card__picture img').prop('src'), data.fullPicture);
         assert.equal(wrapper.find('.card__caption').text(), data.message);
     });
 });
