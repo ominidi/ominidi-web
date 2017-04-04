@@ -1,4 +1,4 @@
-import React, { PropTypes } from "react";
+import React, {PropTypes} from "react";
 
 const Photo = (props) => {
     return (
@@ -9,7 +9,7 @@ const Photo = (props) => {
                 </figure>
 
                 <footer className="card__footer">
-                    <h5 className="card__caption">
+                    <h5 className="card__caption title-6">
                         { props.message }
                     </h5>
                 </footer>

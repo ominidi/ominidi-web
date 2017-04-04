@@ -21,14 +21,14 @@
         }
     }
 
-    &__footer {
-
-    }
-
     &__caption {
         color: $black;
         font-weight: 400;
         margin: 0;
+        padding-left: 4em;
+        overflow: hidden;
         text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }

@@ -15,7 +15,7 @@ var _Feed2 = _interopRequireDefault(_Feed);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var container = document.querySelector('.feed');
+var container = document.querySelector('.photos__content');
 
 if (container) {
     _reactDom2.default.render(_react2.default.createElement(_Feed2.default, null), container);
@@ -84,7 +84,7 @@ var Feed = function (_React$Component) {
         value: function render() {
             return React.createElement(
                 'div',
-                { className: 'feed' },
+                { className: 'feed photos__feed' },
                 this.state.posts.filter(function (post) {
                     return post.type === PHOTO;
                 }).map(function (post, i) {
@@ -129,7 +129,7 @@ var Photo = function Photo(props) {
                 { className: "card__footer" },
                 _react2.default.createElement(
                     "h5",
-                    { className: "card__caption" },
+                    { className: "card__caption title-6" },
                     props.message
                 )
             )

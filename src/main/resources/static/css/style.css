@@ -87,7 +87,7 @@ h5,
 
 h6,
 .title-6 {
-  font-size: 0.667em;
+  font-size: 0.9em;
 }
 
 p {
@@ -164,7 +164,11 @@ a:hover,
   color: #000;
   font-weight: 400;
   margin: 0;
+  padding-left: 4em;
+  overflow: hidden;
   text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .section {
@@ -346,13 +350,13 @@ a:hover,
   }
 }
 
-.photos .feed {
+.photos .photos__feed {
   display: flex;
   flex-direction: column;
 }
 
 @media (min-width: 768px) {
-  .photos .feed {
+  .photos .photos__feed {
     flex-direction: row;
     flex-wrap: wrap;
   }

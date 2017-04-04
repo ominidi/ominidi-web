@@ -20,7 +20,7 @@ export default class Feed extends React.Component {
 
     render() {
         return (
-            <div className="feed">
+            <div className="feed photos__feed">
                 {this.state.posts
                     .filter(post => post.type === PHOTO)
                     .map((post, i) => {
