@@ -1,6 +1,8 @@
 import * as React from "react";
 import Photo from './Photo';
 
+const PHOTO = 'photo';
+
 export default class Feed extends React.Component {
     constructor(props) {
         super(props);
@@ -18,10 +20,12 @@ export default class Feed extends React.Component {
 
     render() {
         return (
-            <div className="photos__content">
-                {this.state.posts.map((photo, i) => {
-                    return (<Photo key={i} />)
-                })}
+            <div className="feed photos__feed">
+                {this.state.posts
+                    .filter(post => post.type === PHOTO)
+                    .map((post, i) => {
+                        return (<Photo { ...post } key={i}/>)
+                    })}
             </div>
         );
     }

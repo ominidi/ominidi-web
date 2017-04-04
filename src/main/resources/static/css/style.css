@@ -87,7 +87,7 @@ h5,
 
 h6,
 .title-6 {
-  font-size: 0.667em;
+  font-size: 0.9em;
 }
 
 p {
@@ -164,7 +164,11 @@ a:hover,
   color: #000;
   font-weight: 400;
   margin: 0;
+  padding-left: 4em;
+  overflow: hidden;
   text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .section {
@@ -209,7 +213,7 @@ a:hover,
 
 @media (min-width: 1024px) {
   .masthead {
-    height: 550px;
+    height: 375px;
   }
 }
 
@@ -237,10 +241,18 @@ a:hover,
 
 .navbar {
   background-color: #FFF;
-  box-shadow: 0 3px 6px #000;
+  border-bottom: 1px solid #E2E2E2;
   height: 45px;
   position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    box-shadow: 0 3px 6px #000;
+  }
 }
 
 .navbar__menu {
@@ -255,7 +267,7 @@ a:hover,
 
 .navbar__menu__item {
   height: 100%;
-  margin: 0 9.25px;
+  margin: 0;
   width: 45px;
   text-align: center;
 }
@@ -268,7 +280,8 @@ a:hover,
   height: 100%;
 }
 
-.navbar__menu__link:hover {
+.navbar__menu__link:hover, .navbar__menu__link.current {
+  background-color: #E2E2E2 !important;
   text-decoration: none;
 }
 
@@ -346,20 +359,27 @@ a:hover,
   }
 }
 
-.photos__content {
+.photos .photos__feed {
   display: flex;
   flex-direction: column;
 }
 
 @media (min-width: 768px) {
-  .photos__content {
+  .photos .photos__feed {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
 .photos__item {
-  flex: 1 0 auto;
+  flex: 0 1 auto;
+}
+
+@media (min-width: 768px) {
+  .photos__item {
+    margin: 0 7.5px;
+  }
 }
 
 .error__content {

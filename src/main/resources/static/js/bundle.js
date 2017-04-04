@@ -15,7 +15,7 @@ var _Feed2 = _interopRequireDefault(_Feed);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var container = document.querySelector('.feed');
+var container = document.querySelector('.photos__content');
 
 if (container) {
     _reactDom2.default.render(_react2.default.createElement(_Feed2.default, null), container);
@@ -27,6 +27,8 @@ if (container) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -47,6 +49,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PHOTO = 'photo';
 
 var Feed = function (_React$Component) {
     _inherits(Feed, _React$Component);
@@ -80,9 +84,11 @@ var Feed = function (_React$Component) {
         value: function render() {
             return React.createElement(
                 'div',
-                { className: 'photos__content' },
-                this.state.posts.map(function (photo, i) {
-                    return React.createElement(_Photo2.default, { key: i });
+                { className: 'feed photos__feed' },
+                this.state.posts.filter(function (post) {
+                    return post.type === PHOTO;
+                }).map(function (post, i) {
+                    return React.createElement(_Photo2.default, _extends({}, post, { key: i }));
                 })
             );
         }
@@ -102,34 +108,45 @@ Object.defineProperty(exports, "__esModule", {
 
 var _react = require("react");
 
-var React = _interopRequireWildcard(_react);
+var _react2 = _interopRequireDefault(_react);
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (props) {
-    return React.createElement(
+var Photo = function Photo(props) {
+    return _react2.default.createElement(
         "div",
-        { className: "photos__item" },
-        React.createElement(
+        { className: "photos__item", "data-id": props.id },
+        _react2.default.createElement(
             "article",
             { className: "card" },
-            React.createElement(
+            _react2.default.createElement(
                 "figure",
                 { className: "card__picture" },
-                React.createElement("img", { src: "https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/15780706_231706467255399_5601506606055497757_n.jpg?oh=dcdcc343b77aa2874949841eb78dd35a&oe=596BC28E", title: "", alt: "" })
+                _react2.default.createElement("img", { src: props.fullPicture, title: props.message, alt: props.message })
             ),
-            React.createElement(
+            _react2.default.createElement(
                 "footer",
                 { className: "card__footer" },
-                React.createElement(
+                _react2.default.createElement(
                     "h5",
-                    { className: "card__caption" },
-                    "Title"
+                    { className: "card__caption title-6" },
+                    props.message
                 )
             )
         )
     );
 };
+
+Photo.propTypes = {
+    message: _react.PropTypes.string,
+    objectId: _react.PropTypes.string,
+    link: _react.PropTypes.string,
+    picture: _react.PropTypes.string,
+    fullPicture: _react.PropTypes.string,
+    id: _react.PropTypes.string
+};
+
+exports.default = Photo;
 
 },{"react":180}],4:[function(require,module,exports){
 (function (process){

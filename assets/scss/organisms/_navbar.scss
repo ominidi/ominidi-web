@@ -1,9 +1,15 @@
 .navbar {
     background-color: $white;
-    box-shadow: 0 3px 6px $black;
+    border-bottom: 1px solid $grey-200;
     height: 45px;
     position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1;
+
+    @include breakpoint(min-width 768px) {
+        box-shadow: 0 3px 6px $black;
+    }
 
     &__menu {
         display: flex;
@@ -16,7 +22,7 @@
 
         &__item {
             height: 100%;
-            margin: 0 9.25px;
+            margin: 0;
             width: 45px;
             text-align: center;
         }
@@ -28,7 +34,9 @@
             display: block;
             height: 100%;
 
-            &:hover {
+            &:hover,
+            &.current {
+                background-color: $grey-200!important;
                 text-decoration: none;
             }
 

@@ -3,17 +3,22 @@
         padding: 33px 0;
     }
 
-    &__content {
+    .photos__feed {
         display: flex;
         flex-direction: column;
 
         @include breakpoint(min-width 768px) {
             flex-direction: row;
             flex-wrap: wrap;
+            justify-content: center;
         }
     }
 
     &__item {
-        flex: 1 0 auto;
+        flex: 0 1 auto;
+
+        @include breakpoint(min-width 768px) {
+            margin: 0 7.5px;
+        }
     }
 }
