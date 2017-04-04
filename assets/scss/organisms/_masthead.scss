@@ -6,7 +6,7 @@
     position: relative;
 
     @include breakpoint(min-width 1024px) {
-        height: 550px;
+        height: 375px;
     }
     
     &__title {
