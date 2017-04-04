@@ -346,13 +346,13 @@ a:hover,
   }
 }
 
-.photos__content {
+.photos .feed {
   display: flex;
   flex-direction: column;
 }
 
 @media (min-width: 768px) {
-  .photos__content {
+  .photos .feed {
     flex-direction: row;
     flex-wrap: wrap;
   }

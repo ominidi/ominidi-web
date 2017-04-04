@@ -3,6 +3,7 @@ import babelify from 'babelify';
 import browserify from 'browserify';
 import buffer from 'vinyl-buffer';
 import cssmin from 'gulp-cssmin';
+import mocha from 'gulp-mocha';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
@@ -28,7 +29,7 @@ gulp.task('sass:watch', function () {
 
 gulp.task('js', () => {
     return browserify({
-        entries: `${assets}/js/application/index.js`,
+        entries: `${assets}/js/application/src/index.js`,
         extensions: ['.js', '.jsx'],
         debug: true
     })
@@ -62,5 +63,13 @@ gulp.task('uglify', () => {
         .pipe(gulp.dest(`${dest}/js`));
 });
 
+gulp.task('mocha', () => {
+    return gulp.src(`${assets}/js/application/test/**/*`)
+        .pipe(mocha({
+            compilers: 'js:babel-core/register'
+        }));
+});
+
 gulp.task('watch', ['sass:watch', 'js:watch']);
+gulp.task('test', ['mocha']);
 gulp.task('build', ['sass', 'cssmin', 'js', 'uglify']);
