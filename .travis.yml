@@ -15,7 +15,7 @@ before_install:
 before_script:
   - yarn install > /dev/null
   - ./node_modules/.bin/gulp test
-  - ./node_modules/.bin/gulp build
+  - NODE_ENV=production ./node_modules/.bin/gulp build
 script:
   - mvn -q cobertura:cobertura
 after_success:
