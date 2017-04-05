@@ -15,12 +15,14 @@ before_install:
 before_script:
   - yarn install > /dev/null
   - ./node_modules/.bin/gulp test
-  - NODE_ENV=production ./node_modules/.bin/gulp build
+  - ./node_modules/.bin/gulp build
 script:
   - mvn -q cobertura:cobertura
 after_success:
  - bash <(curl -s https://codecov.io/bash)
  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    mvn -q clean;
+    mvn package;
     mvn -q docker:build;
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker tag ominidi/ominidi-web ominidi/ominidi-web:latest;
