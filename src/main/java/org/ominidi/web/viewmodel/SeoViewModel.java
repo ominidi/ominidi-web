@@ -21,10 +21,10 @@ import java.util.Map;
 public class SeoViewModel {
     public Map<String, Object> pages;
 
-    public SeoViewModel() throws IOException {
-        Resource resource = new ClassPathResource("config/seo.yml");
-        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        pages = mapper.readValue(resource.getFile(), new TypeReference<Map<String, Page>>() {});
+    public SeoViewModel() {
+//        Resource resource = new ClassPathResource("config/seo.yml");
+//        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+//        pages = mapper.readValue(resource.getFile(), new TypeReference<Map<String, Page>>() {});
     }
 
     @Getter
