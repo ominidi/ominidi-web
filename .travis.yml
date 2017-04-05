@@ -15,8 +15,8 @@ before_install:
 script:
   - mvn -q cobertura:cobertura
   - yarn install > /dev/null
-  - ./node_modules/.bin/gulp test
-  - ./node_modules/.bin/gulp build
+  - NODE_ENV=production ./node_modules/.bin/gulp test
+  - NODE_ENV=production ./node_modules/.bin/gulp build
 after_success:
  - bash <(curl -s https://codecov.io/bash)
  - if [ "$TRAVIS_BRANCH" == "master" ]; then

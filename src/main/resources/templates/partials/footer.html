@@ -20,4 +20,4 @@
     </div>
 </footer>
 
-<script src="/js/bundle.js"></script>
+<script th:src="'/js/bundle' + ${@environment.acceptsProfiles('production') ? '.min.js' : '.js'}"></script>
