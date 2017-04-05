@@ -1,0 +1,3 @@
+# Robot I will kill you...
+User-agent: *
+Allow: *

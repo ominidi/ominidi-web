@@ -6,6 +6,7 @@ import cssmin from 'gulp-cssmin';
 import mocha from 'gulp-mocha';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
+import sequence from 'run-sequence';
 import sourcemaps from 'gulp-sourcemaps';
 import source from 'vinyl-source-stream';
 import uglify from 'gulp-uglify';
@@ -28,6 +29,9 @@ gulp.task('sass:watch', function () {
 });
 
 gulp.task('js', () => {
+    console.log(process.env.NODE_ENV);
+
+
     return browserify({
         entries: `${assets}/js/application/src/index.js`,
         extensions: ['.js', '.jsx'],
@@ -72,4 +76,7 @@ gulp.task('mocha', () => {
 
 gulp.task('watch', ['sass:watch', 'js:watch']);
 gulp.task('test', ['mocha']);
-gulp.task('build', ['sass', 'cssmin', 'js', 'uglify']);
+gulp.task('build', sequence(
+    ['sass', 'js'],
+    ['cssmin', 'uglify']
+));
