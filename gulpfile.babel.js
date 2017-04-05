@@ -76,7 +76,9 @@ gulp.task('mocha', () => {
 
 gulp.task('watch', ['sass:watch', 'js:watch']);
 gulp.task('test', ['mocha']);
-gulp.task('build', sequence(
-    ['sass', 'js'],
-    ['cssmin', 'uglify']
-));
+gulp.task('build', () => {
+    return sequence(
+        ['sass', 'js'],
+        ['cssmin', 'uglify'],
+    )
+});

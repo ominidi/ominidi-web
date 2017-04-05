@@ -1,0 +1,20 @@
+manifesto:
+  title: "Manifesto - Ominidi.org"
+  description: "Il Manifesto di Ominidi.org, il cuore pulsante e primitivo della sua filosofia."
+  og_url: "https://www.ominidi.org/manifesto"
+  og_image: ""
+foto:
+  title: "Foto - Ominidi.org"
+  description: "Tutte le foto dei luoghi dove gli Ominidi si sono riappropriati degli spazi dell'Homo Sapiens."
+  og_url: "https://www.ominidi.org/foto"
+  og_image: ""
+attributions:
+  title: "Attributions - Ominidi.org"
+  description: "Ominidi.org è stato creato con software e materiali con licenza Free Softwar, Open Source o CreativeCommons. Qui puoi trovare l'elenco di tutti i software e i materiali utilizzati per la sua creazione"
+  og_url: "https://www.ominidi.org/attributions"
+  og_image: ""
+downloads:
+  title: "Downloads - Ominidi.org"
+  description: "La pagina dove è possibile scaricare tutte le risose e i materiali relativi di Ominidi.org"
+  og_url: "https://www.ominidi.org/downloads"
+  og_image: ""
