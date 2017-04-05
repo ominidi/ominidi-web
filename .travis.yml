@@ -4,8 +4,6 @@ jdk:
  - oraclejdk8
 services:
   - docker
-cache:
-  yarn: true
 env:
   - NODE_ENV=production
 before_install:
