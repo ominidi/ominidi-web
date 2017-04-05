@@ -1,7 +1,7 @@
 import assert from 'assert';
 import React from 'react';
 import { shallow } from 'enzyme';
-import Photo from '../../src/photos/components/Photo';
+import Photo from '../../../src/photos/components/Photo';
 
 const data = {
     message: 'Lorem Ipsum',
