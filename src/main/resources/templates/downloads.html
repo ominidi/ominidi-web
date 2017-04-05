@@ -4,24 +4,68 @@
     <meta th:replace="partials/meta">
 </head>
 <body>
-    <header th:replace="partials/header"></header>
+<header th:replace="partials/header"></header>
 
-    <main id="main" class="main">
-        <section class="section-template">
-            <header class="section__header">
-                <h2 class="section__title title-2">
-                    Downloads
-                </h2>
-            </header>
+<main id="main" class="main">
+    <section class="section-template">
+        <header class="section__header">
+            <h2 class="section__title title-2">
+                Downloads
+            </h2>
+        </header>
 
-            <article class="downloads__content">
-                <p class="text-center">
-                    A breve sarà possibile scaricare tutto il materiale di Ominidi.
+        <article class="downloads__content">
+            <p class="text-center">
+                In questa sezione è possibile scaricare tutte le risose e i materiali relativi di Ominidi.org
+            </p>
+
+            <div class="downloadebles">
+                <h4>
+                    <a href="https://github.com/ominidi/downloads/tree/master/stickers" title="Clicca qui per scaricare gli adesivi">
+                        Adesivi / Stickers
+                    </a>
+                </h4>
+                <p>
+                    Ogni adesivo è un Ominide, un virus pronto a proliferare.
                 </p>
-            </article>
-        </section>
+            </div>
 
-        <footer th:replace="partials/footer"></footer>
-    </main>
+            <div class="downloadebles">
+                <h4>
+                    <a href="https://github.com/ominidi/downloads/tree/master/photos" title="Clicca qui per scaricare le foto">
+                        Foto
+                    </a>
+                </h4>
+                <p>
+                    Tutte le foto dei luoghi dove gli Ominidi si sono riappropriati degli spazi dell'Homo Sapiens.
+                </p>
+            </div>
+
+            <div class="downloadebles">
+                <h4>
+                    <a href="https://github.com/ominidi/manifesto/archive/master.zip" title="Clicca qui per scaricare il Manifesto">
+                        Manifesto
+                    </a>
+                </h4>
+                <p>
+                    Il Manifesto di Ominidi.org
+                </p>
+            </div>
+
+            <div>
+                <h4>
+                    <a href="https://github.com/ominidi/design-guidelines/archive/master.zip" title="Clicca qui per scaricare le linee guida del design">
+                        Design guidelines
+                    </a>
+                </h4>
+                <p>
+                    I wireframes, la style guide e i documenti del design di Ominidi.org
+                </p>
+            </div>
+        </article>
+    </section>
+
+    <footer th:replace="partials/footer"></footer>
+</main>
 </body>
 </html>

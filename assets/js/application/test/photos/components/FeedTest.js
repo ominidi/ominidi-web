@@ -1,7 +1,7 @@
 import assert from 'assert';
 import React from 'react';
 import {shallow} from 'enzyme';
-import Feed from '../../src/photos/components/Feed';
+import Feed from '../../../src/photos/components/Feed';
 
 const data = {
     posts: [
