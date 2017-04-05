@@ -12,6 +12,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.Map;
 
 @Getter
@@ -20,7 +21,7 @@ import java.util.Map;
 public class SeoViewModel {
     public Map<String, Object> pages;
 
-    public SeoViewModel() throws Exception {
+    public SeoViewModel() throws IOException {
         Resource resource = new ClassPathResource("config/seo.yml");
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         pages = mapper.readValue(resource.getFile(), new TypeReference<Map<String, Page>>() {});
