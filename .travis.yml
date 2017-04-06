@@ -6,24 +6,25 @@ services:
   - docker
 cache:
   yarn: true
-env:
-  - NODE_ENV=production
 before_install:
   - nvm install 7.8.0 > /dev/null
   - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
   - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   - sudo apt-get update -qq
   - sudo apt-get install -y -qq yarn
-before_script:
+install:
   - yarn install > /dev/null
+  - mvn --quiet install -DskipTests=true -Dmaven.javadoc.skip=true -Dcobertura.skip=true -B -V
+script:
   - ./node_modules/.bin/gulp test
   - ./node_modules/.bin/gulp build
-script:
-  - mvn -q cobertura:cobertura
+  - mvn --quiet cobertura:cobertura
 after_success:
  - bash <(curl -s https://codecov.io/bash)
  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    mvn -q docker:build;
+    mvn --quiet clean;
+    mvn --quiet package -Dmaven.test.skip=true;
+    mvn --quiet docker:build;
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker tag ominidi/ominidi-web ominidi/ominidi-web:latest;
     docker push ominidi/ominidi-web:latest;
