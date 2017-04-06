@@ -1,0 +1,10 @@
+test_a:
+  title: "Test A"
+  description: "Test A description"
+  og_url: "https://www.test.a"
+  og_image: "https://www.test.a/image.png"
+test_b:
+  title: "Test B"
+  description: "Test B description"
+  og_url: "https://www.test.b"
+  og_image: "https://www.test.b/image.png"
