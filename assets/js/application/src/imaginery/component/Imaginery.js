@@ -9,13 +9,13 @@ export default class Imaginery extends  React.Component {
     componentDidMount() {
         const scene = Triangles.getScene();
         const camera = Triangles.getCamera();
-        const renderer = Triangles.getRenderer(window.innerWidth, this.props.height);
+        const renderer = Triangles.getRenderer(this.props.width, this.props.height);
         const shapes = [
-            Triangles.getTetra(window.innerWidth / 1.1, 2, '#B4FF00'),
-            Triangles.getTetra(window.innerWidth, 1, '#EEFF00'),
-            Triangles.getTetra(window.innerWidth / 1.5, 2, '#FF0077'),
-            Triangles.getTetra(window.innerWidth / 0.8, 2, '#0019FF'),
-            Triangles.getTetra(window.innerWidth / 0.6, 2, '#FFFFFF')
+            Triangles.getTetra(this.props.width / 1.7, 2, '#B4FF00'),
+            Triangles.getTetra(this.props.width / 1.6, 1, '#EEFF00'),
+            Triangles.getTetra(this.props.width / 1.5, 2, '#FF0077'),
+            Triangles.getTetra(this.props.width / 1.4, 2, '#0019FF'),
+            Triangles.getTetra(this.props.width / 1.2, 2, '#FFFFFF')
         ];
 
         shapes.forEach(shape => {
