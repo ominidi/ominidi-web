@@ -10,28 +10,27 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Map;
 
 @Getter
 @Setter
-@Component
 public class SeoViewModel {
-    public Map<String, Object> pages;
+    public Map<String, Page> pages;
 
-    public SeoViewModel() {
+    public SeoViewModel(String path) throws IOException {
 //        Resource resource = new ClassPathResource("config/seo.yml");
-//        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-//        pages = mapper.readValue(resource.getFile(), new TypeReference<Map<String, Page>>() {});
+        Resource resource = new ClassPathResource(path);
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        pages = mapper.readValue(resource.getFile(), new TypeReference<Map<String, Page>>() {});
     }
 
     @Getter
     @Setter
     @NoArgsConstructor
     @AllArgsConstructor
-    private static class Page {
+    public static class Page {
         private String title;
         private String description;
 
