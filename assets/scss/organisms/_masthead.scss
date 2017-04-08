@@ -1,23 +1,20 @@
 .masthead {
-    display: flex;
-    flex-direction: column;
-    height: 105px;
-    justify-content: center;
+    padding-bottom: 56.25%;
     position: relative;
+    width: 100%;
 
-    @include breakpoint(min-width 1024px) {
-        height: 375px;
-    }
-    
     &__title {
         color: $white;
         font-size: 2.875em;
         font-weight: bold;
+        left: 0;
         margin: 0;
-        position: relative;
+        position: absolute;
+        top: 50%;
         text-align: center;
         text-shadow: 1px 1px 0 $black;
         text-transform: uppercase;
+        width: 100%;
 
         @include breakpoint(min-width 1024px) {
             font-size: 3.375em;

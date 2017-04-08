@@ -17,8 +17,8 @@ const getRenderer = (width, height) => {
     return renderer;
 };
 
-const getCamera = () => {
-    let camera = new PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 2000);
+const getCamera = (fov = 55, ratio) => {
+    let camera = new PerspectiveCamera(fov, ratio, 1, 2000);
     camera.position.z = 500;
     return camera;
 };

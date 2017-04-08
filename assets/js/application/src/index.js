@@ -3,15 +3,32 @@ import dom from 'react-dom';
 import Feed from './photos/components/Feed';
 import Imaginery from './imaginery/component/Imaginery';
 
-const container = document.querySelector('.photos__content');
-const isMobile = window.matchMedia('(max-width: 768px)').matches;
+function renderFeed() {
+    const container = document.querySelector('.photos__content');
 
-console.log(isMobile);
-
-if (container) {
-    dom.render(<Feed />, container);
+    if (container) {
+        dom.render(<Feed />, container);
+    }
 }
 
-dom.render(<Imaginery width={window.document.body.clientWidth} height={isMobile ? 105 : 375 } />, document.querySelector('.imaginery__placeholder'));
+function renderImaginery() {
+    function getRatio() {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        const width = window.document.body.clientWidth;
+        const height = (width * 9) / 16;
+
+        return {
+            width: width,
+            height: height,
+            ratio: width / height,
+            isMobile: isMobile
+        };
+    }
+
+    dom.render(<Imaginery getRatio={ getRatio }/>, document.querySelector('.imaginery__placeholder'));
+}
+
+renderFeed();
+renderImaginery();
 
 

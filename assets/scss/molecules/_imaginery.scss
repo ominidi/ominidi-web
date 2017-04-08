@@ -1,11 +1,18 @@
 .imaginery {
-    background-position: center center;
-    background-repeat: no-repeat;
+    background: center no-repeat;
     background-size: cover;
     height: 100%;
     left: 0;
     margin: 0;
     padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.imaginery__placeholder {
+    height: 100%;
+    left: 0;
     position: absolute;
     top: 0;
     width: 100%;

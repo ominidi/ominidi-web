@@ -29,9 +29,6 @@ gulp.task('sass:watch', function () {
 });
 
 gulp.task('js', () => {
-    console.log(process.env.NODE_ENV);
-
-
     return browserify({
         entries: `${assets}/js/application/src/index.js`,
         extensions: ['.js', '.jsx'],
@@ -79,6 +76,6 @@ gulp.task('test', ['mocha']);
 gulp.task('build', () => {
     return sequence(
         ['sass', 'js'],
-        ['cssmin', 'uglify'],
+        ['cssmin', 'uglify']
     )
 });
