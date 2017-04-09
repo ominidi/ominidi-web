@@ -27,7 +27,7 @@ public class SeoViewModelTest {
 
     @Test
     public void itShouldFillPageViewModelFromAYamlFile() throws IOException {
-        SeoViewModel seoViewModel = new SeoViewModel(path);
+        SeoViewModel seoViewModel = new SeoViewModel(pages);
 
         assertEquals(pages.size(), seoViewModel.getPages().size());
         SeoViewModel.Page testA = seoViewModel.getPages().get("test_a");
