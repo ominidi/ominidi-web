@@ -20,7 +20,6 @@ public class SeoViewModel {
     public Map<String, Page> pages;
 
     public SeoViewModel(String path) throws IOException {
-//        Resource resource = new ClassPathResource("config/seo.yml");
         Resource resource = new ClassPathResource(path);
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         pages = mapper.readValue(resource.getFile(), new TypeReference<Map<String, Page>>() {});
