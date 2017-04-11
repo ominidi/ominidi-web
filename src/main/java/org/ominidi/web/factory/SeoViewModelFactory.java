@@ -17,7 +17,7 @@ public class SeoViewModelFactory {
 
     public SeoViewModel getViewModel(String path) throws FileNotFoundException {
         Map<String, SeoViewModel.Page> pages;
-        Resource resource = new ClassPathResource(path);
+        Resource resource = new ClassPathResource(path, getClass());
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 
         try {

@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 @SpringBootTest(classes = Application.class)
 @ActiveProfiles(value = "test")
 public class SeoViewModelFactoryTest {
-    private String path = "fixtures/seo.yml";
+    private String path = "/fixtures/seo.yml";
 
     @Autowired
     private SeoViewModelFactory seoViewModelFactory;

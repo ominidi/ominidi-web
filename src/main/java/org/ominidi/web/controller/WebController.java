@@ -18,7 +18,7 @@ public class WebController {
     @Autowired
     public WebController(SeoViewModelFactory seoViewModelFactory) throws IOException {
         this.seoViewModelFactory = seoViewModelFactory;
-        this.seoViewModel = seoViewModelFactory.getViewModel("config/seo.yml");
+        this.seoViewModel = seoViewModelFactory.getViewModel("/config/seo.yml");
     }
 
     @GetMapping({"/", "/manifesto"})
