@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @Controller
@@ -22,10 +23,11 @@ public class WebController {
     }
 
     @GetMapping({"/", "/manifesto"})
-    public ModelAndView index() {
+    public ModelAndView index(HttpServletRequest request) {
+        String page = request.getRequestURI().equals("/") ? "index" : "manifest";
         ModelAndView modelAndView = new ModelAndView("manifest");
         modelAndView.addObject("current", "manifest")
-                .addObject("seo", seoViewModel.getPages().get("manifest"));
+                .addObject("seo", seoViewModel.getPages().get(page));
         return modelAndView;
     }
 
