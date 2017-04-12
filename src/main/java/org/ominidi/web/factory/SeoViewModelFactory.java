@@ -17,11 +17,11 @@ public class SeoViewModelFactory {
 
     public SeoViewModel getViewModel(String path) throws FileNotFoundException {
         Map<String, SeoViewModel.Page> pages;
-        Resource resource = new ClassPathResource(path, getClass());
+        Resource resource = new ClassPathResource(path);
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 
         try {
-            pages = mapper.readValue(resource.getFile(), new TypeReference<Map<String, SeoViewModel.Page>>() {});
+            pages = mapper.readValue(resource.getURL(), new TypeReference<Map<String, SeoViewModel.Page>>() {});
             return new SeoViewModel(pages);
         } catch (IOException e) {
             throw new FileNotFoundException("File " + path + " not found");
