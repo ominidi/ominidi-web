@@ -9,10 +9,11 @@ import sass from 'gulp-sass';
 import sequence from 'run-sequence';
 import sourcemaps from 'gulp-sourcemaps';
 import source from 'vinyl-source-stream';
+import swPrecache from 'sw-precache';
 import uglify from 'gulp-uglify';
 
 const assets = './assets';
-const dest = 'src/main/resources/static/';
+const dest = 'src/main/resources/static';
 
 gulp.task('sass', function () {
     return gulp.src(`${assets}/scss/**/*.scss`)
@@ -71,11 +72,43 @@ gulp.task('mocha', () => {
         }));
 });
 
+gulp.task('service-worker', (cb) => {
+    swPrecache.write(`${dest}/sw.js`, {
+        runtimeCaching: [{
+            urlPattern: /\/api\/v1\//,
+            handler: 'networkFirst'
+        },{
+            urlPattern: '/',
+            handler: 'fastest'
+        },{
+            urlPattern: '/manifesto',
+            handler: 'fastest'
+        },{
+            urlPattern: '/foto',
+            handler: 'fastest'
+        },{
+            urlPattern: '/attributions',
+            handler: 'fastest'
+        },{
+            urlPattern: '/downloads',
+            handler: 'fastest'
+        }],
+        staticFileGlobs: [
+            `${dest}/css/**/*.css`,
+            `${dest}/js/**/*.js`,
+            `${dest}/img/**`,
+            `${dest}/fonts/**`
+        ],
+        stripPrefix: `${dest}`
+    }, cb);
+});
+
 gulp.task('watch', ['sass:watch', 'js:watch']);
 gulp.task('test', ['mocha']);
 gulp.task('build', () => {
     return sequence(
         ['sass', 'js'],
-        ['cssmin', 'uglify']
+        ['cssmin', 'uglify'],
+        ['service-worker']
     )
 });

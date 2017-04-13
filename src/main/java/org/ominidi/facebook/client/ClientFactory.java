@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import java.io.IOException;
-
 @Configuration
 @Import(FacebookConfig.class)
 public class ClientFactory {

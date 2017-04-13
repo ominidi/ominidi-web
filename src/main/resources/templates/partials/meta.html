@@ -3,6 +3,7 @@
 <meta name="description" th:attr="content=${seo.getDescription()}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="ZYtLz8JgCX7aBT8B9cja6p2SXuPWUrMeWLs5Ru4KllQ" />
+<meta name="theme-color" content="#181818">
 
 <meta property="og:title" th:attr="content=${seo.getTitle()}" />
 <meta property="og:description" th:attr="content=${seo.getDescription()}"/>
@@ -12,5 +13,8 @@
 <meta property="og:locale" content="it_IT" />
 <meta property="og:site_name" content="Ominidi.org" />
 
+
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-touch-icon.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="stylesheet" th:href="'/css/style' + ${@environment.acceptsProfiles('production') ? '.min.css' : '.css'}"/>

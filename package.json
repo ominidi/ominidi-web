@@ -24,6 +24,7 @@
     "node-sass": "^4.5.1",
     "react-addons-test-utils": "^15.4.2",
     "run-sequence": "^1.2.2",
+    "sw-precache": "^5.1.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
