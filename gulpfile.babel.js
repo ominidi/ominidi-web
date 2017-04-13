@@ -103,12 +103,17 @@ gulp.task('service-worker', (cb) => {
     }, cb);
 });
 
+gulp.task('copy', () => {
+    gulp.src(`${assets}/js/sw-registration.js`)
+        .pipe(gulp.dest(`${dest}/js/`))
+});
+
 gulp.task('watch', ['sass:watch', 'js:watch']);
 gulp.task('test', ['mocha']);
 gulp.task('build', () => {
     return sequence(
         ['sass', 'js'],
         ['cssmin', 'uglify'],
-        ['service-worker']
+        ['service-worker', 'copy']
     )
 });
