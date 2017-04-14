@@ -15,7 +15,7 @@ function renderImaginery() {
     function getRatio() {
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
         const width = window.document.body.clientWidth;
-        const height = (width * 9) / 16;
+        const height = (width * 9) / 21;
 
         return {
             width: width,

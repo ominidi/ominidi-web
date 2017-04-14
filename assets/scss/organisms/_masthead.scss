@@ -1,5 +1,6 @@
 .masthead {
-    padding-bottom: 56.25%;
+    background-color: black;
+    padding-bottom: (9 / 21) * 100%;
     position: relative;
     width: 100%;
 
@@ -19,10 +20,5 @@
         @include breakpoint(min-width 1024px) {
             font-size: 3.375em;
         }
-    }
-
-    &__footer {
-        background-color: $black;
-        padding: 10px;
     }
 }
