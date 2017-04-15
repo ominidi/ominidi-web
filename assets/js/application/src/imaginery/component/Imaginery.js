@@ -12,12 +12,17 @@ export default class Imaginery extends  React.Component {
         const camera = Triangles.getCamera((isMobile ? 30 : 75), ratio);
         const renderer = Triangles.getRenderer(width, height);
         const shapes = [
-            Triangles.getTetra(width / 1.7, 2, '#B4FF00'),
-            Triangles.getTetra(width / 1.6, 1, '#EEFF00'),
-            Triangles.getTetra(width / 1.5, 2, '#FF0077'),
-            Triangles.getTetra(width / 1.4, 1, '#0019FF'),
-            Triangles.getTetra(width / 1.3, 2, '#FFFFFF'),
-            Triangles.getTetra(width / 1.2, 1, '#95989A')
+            // Triangles.getTetra(width / 1.7, 2, '#B4FF00'),
+            // Triangles.getTetra(width / 1.6, 1, '#EEFF00'),
+            // Triangles.getTetra(width / 1.5, 2, '#FF0077'),
+            // Triangles.getTetra(width / 1.4, 1, '#0019FF'),
+            // Triangles.getTetra(width / 1.3, 2, '#FFFFFF'),
+            // Triangles.getTetra(width / 1.2, 1, '#95989A')
+
+            Triangles.getTetra(width / 1.7, 2, '#FFFFFF'),
+            Triangles.getTetra(width / 1.6, 1, '#EFEFEF'),
+            Triangles.getTetra(width / 1.5, 2, '#95989A'),
+            Triangles.getTetra(width / 1.4, 1, '#2E2E2E'),
         ];
 
         shapes.forEach(shape => {

@@ -20,5 +20,13 @@
         @include breakpoint(min-width 1024px) {
             font-size: 3.375em;
         }
+
+        span {
+            text-indent: -9999999px;
+        }
+    }
+
+    &__logo {
+        max-width: 300px;
     }
 }
