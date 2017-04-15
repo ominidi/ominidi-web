@@ -4,7 +4,8 @@
   "background_color": "#181818",
   "name": "Ominidi.org",
   "short_name": "Ominidi.org",
-  "display": "browser",
+  "start_url": "/foto",
+  "display": "standalone",
   "icons": [
     {
       "src": "/img/icons/android-chrome-192x192.png",
