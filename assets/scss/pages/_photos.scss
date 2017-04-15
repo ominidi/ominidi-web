@@ -3,6 +3,20 @@
         padding: 33px 0;
     }
 
+    &__content {
+        // Min height equal to a row of photos
+        // to avoid flash content
+        min-height: 307px;
+    }
+
+    &__item {
+        flex: 0 1 auto;
+
+        @include breakpoint(min-width 768px) {
+            margin: 0 7.5px;
+        }
+    }
+
     .photos__feed {
         display: flex;
         flex-direction: column;
@@ -11,14 +25,6 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
-        }
-    }
-
-    &__item {
-        flex: 0 1 auto;
-
-        @include breakpoint(min-width 768px) {
-            margin: 0 7.5px;
         }
     }
 }
