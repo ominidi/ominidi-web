@@ -21,4 +21,4 @@
 </footer>
 
 <script th:src="@{/js/sw-registration.js}"></script>
-<script th:src="'/js/bundle' + ${@environment.acceptsProfiles('production') ? '.min.js' : '.js'}"></script>
+<script th:src="'/js/bundle' + ${@environment.acceptsProfiles('production') ? '.min.js' : '.js'}" defer></script>
