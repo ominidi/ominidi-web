@@ -17,7 +17,7 @@ install:
   - mvn --quiet install -DskipTests=true -Dmaven.javadoc.skip=true -Dcobertura.skip=true -B -V
 script:
   - ./node_modules/.bin/gulp test
-  - ./node_modules/.bin/gulp build
+  - NODE_ENV=production ./node_modules/.bin/gulp build
   - mvn --quiet cobertura:cobertura
 after_success:
  - bash <(curl -s https://codecov.io/bash)
