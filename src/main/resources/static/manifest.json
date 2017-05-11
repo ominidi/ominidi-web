@@ -4,7 +4,7 @@
   "background_color": "#181818",
   "name": "Ominidi.org",
   "short_name": "Ominidi.org",
-  "start_url": "/foto",
+  "start_url": "/manifest",
   "display": "standalone",
   "icons": [
     {
