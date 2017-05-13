@@ -32,7 +32,7 @@ describe('#Feed', () => {
         wrapper.setState(data);
 
         assert.equal(wrapper.hasClass('feed'), true);
-        assert.equal(wrapper.children().length, data.posts.length);
+        assert.equal(wrapper.find('.photos__item').length, data.posts.length);
     });
 
     it('should render only feed item of type "photo"', () => {
@@ -51,6 +51,6 @@ describe('#Feed', () => {
         wrapper.setState(data);
 
         assert.equal(wrapper.hasClass('feed'), true);
-        assert.equal(wrapper.children().length, data.posts.length - 1);
+        assert.equal(wrapper.find('.photos__item').length, data.posts.length - 1);
     });
 });

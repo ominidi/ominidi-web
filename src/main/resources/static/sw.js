@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/css/style.css","288268bf55800b4a3b82082c9e68e549"],["/css/style.min.css","5f94a04ee91aaac785e869cdf921ec09"],["/fonts/LiberationSans-Regular.ttf","4a5b94514121a5da5f7c20dd494765f4"],["/fonts/LiberationSans-Regular.woff","a5f984653478c834360feaea6ef38654"],["/img/attributions.jpg","1c573371dbe7a279b5060974d12aab33"],["/img/concrete_seamless.png","fa6a95e71d181ae6ac1f7586f0d8515a"],["/img/cueva-des-las-manos.jpg","21bc4f49f36f6f1b8934e81a861ca9db"],["/img/downloads.jpg","3ad96f54626b4ae50b8f695e33618dae"],["/img/foto.jpg","669b5eb3e802fc63eeb9ce5f2277cfab"],["/img/fractal.png","f1f3f8af4630c8d709b74e6793eca7e1"],["/img/icons/android-chrome-192x192.png","2dd3106bca80422f7e22b3d47053dc12"],["/img/icons/android-chrome-512x512.png","2d191846d3c6c11635684c2de3069855"],["/img/icons/ominide_1.svg","e363275d086a3110b302e4665a3503e5"],["/img/icons/ominide_2.svg","393493acd74e67c0c577e4f79ac63202"],["/img/icons/ominide_3.svg","fdce01579ca064cf5e993066c009cab3"],["/img/icons/ominide_4.svg","48a1d6392a7121cecb68e72af4ade152"],["/img/logo.jpg","0d711aa9a249add0d3caf507b11b3405"],["/img/manifesto.jpg","6ae26cde4664ba1d889d738514b2e198"],["/img/ominidi.org.png","4e4591e39798bf0119ff6df60074bfd1"],["/img/ominidi.org.svg","4a0c57517d7fc4bc422e2981af5eae5d"],["/js/bundle.js","32f1a20070e33c35ccef5d3ac58ee0b9"],["/js/bundle.min.js","ff5a4acf7501890d5af611d531177526"],["/js/sw-registration.js","0733fab41f38a72044511df88b64ca70"]];
+var precacheConfig = [["/css/style.css","cd738ab63c982f950e09396871bc25be"],["/css/style.min.css","74ff59c3d5aa28b85c26088e47b282d8"],["/fonts/LiberationSans-Regular.ttf","4a5b94514121a5da5f7c20dd494765f4"],["/fonts/LiberationSans-Regular.woff","a5f984653478c834360feaea6ef38654"],["/img/attributions.jpg","1c573371dbe7a279b5060974d12aab33"],["/img/concrete_seamless.png","fa6a95e71d181ae6ac1f7586f0d8515a"],["/img/cueva-des-las-manos.jpg","21bc4f49f36f6f1b8934e81a861ca9db"],["/img/downloads.jpg","3ad96f54626b4ae50b8f695e33618dae"],["/img/foto.jpg","669b5eb3e802fc63eeb9ce5f2277cfab"],["/img/fractal.png","f1f3f8af4630c8d709b74e6793eca7e1"],["/img/icons/android-chrome-192x192.png","2dd3106bca80422f7e22b3d47053dc12"],["/img/icons/android-chrome-512x512.png","2d191846d3c6c11635684c2de3069855"],["/img/icons/ominide_1.svg","e363275d086a3110b302e4665a3503e5"],["/img/icons/ominide_2.svg","393493acd74e67c0c577e4f79ac63202"],["/img/icons/ominide_3.svg","fdce01579ca064cf5e993066c009cab3"],["/img/icons/ominide_4.svg","48a1d6392a7121cecb68e72af4ade152"],["/img/logo.jpg","0d711aa9a249add0d3caf507b11b3405"],["/img/manifesto.jpg","6ae26cde4664ba1d889d738514b2e198"],["/img/ominidi.org.png","4e4591e39798bf0119ff6df60074bfd1"],["/img/ominidi.org.svg","688ce1a2ef86e13aaa7543df1cdcada1"],["/js/bundle.js","1ddad198bc56299da8c7659c9ee6ed76"],["/js/bundle.min.js","25216ff2eceea37fe2bd3e1b60d18fc5"],["/js/sw-registration.js","0733fab41f38a72044511df88b64ca70"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 
@@ -107,6 +107,8 @@ var isPathWhitelisted = function (whitelist, absoluteUrlString) {
 var stripIgnoredUrlParameters = function (originalUrl,
     ignoreUrlParametersMatching) {
     var url = new URL(originalUrl);
+    // Remove the hash; see https://github.com/GoogleChrome/sw-precache/issues/290
+    url.hash = '';
 
     url.search = url.search.slice(1) // Exclude initial '?'
       .split('&') // Split into an array of 'key=value' strings
@@ -212,8 +214,8 @@ self.addEventListener('fetch', function(event) {
     // handlers a chance to handle the request if need be.
     var shouldRespond;
 
-    // First, remove all the ignored parameter and see if we have that URL
-    // in our cache. If so, great! shouldRespond will be true.
+    // First, remove all the ignored parameters and hash fragment, and see if we
+    // have that URL in our cache. If so, great! shouldRespond will be true.
     var url = stripIgnoredUrlParameters(event.request.url, ignoreUrlParametersMatching);
     shouldRespond = urlsToCacheKeys.has(url);
 
