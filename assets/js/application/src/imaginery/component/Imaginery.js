@@ -1,13 +1,19 @@
-import React, {PropTypes} from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 import Triangles from '../animation/Triangles';
 
-export default class Imaginery extends  React.Component {
+/**
+ * Render a canvas where the animation will be paint.
+ *
+ * @author Gabriele D'Arrigo <darrigo.g@gmail.com>
+ */
+export default class Imaginery extends React.Component {
     constructor(props) {
         super(props);
     }
 
     renderCanvas(el) {
-        const { width, height, ratio, isMobile } = this.props.getRatio();
+        const {width, height, ratio, isMobile} = this.props.getRatio();
         const scene = Triangles.getScene();
         const camera = Triangles.getCamera((isMobile ? 30 : 75), ratio);
         const renderer = Triangles.getRenderer(width, height);
@@ -26,16 +32,16 @@ export default class Imaginery extends  React.Component {
         Triangles.start(renderer, scene, camera, shapes)();
 
         window.addEventListener('resize', () => {
-            const { width, height, ratio } = this.props.getRatio();
+            const {width, height, ratio} = this.props.getRatio();
             camera.aspect = ratio;
             camera.updateProjectionMatrix();
-            renderer.setSize( width, height );
+            renderer.setSize(width, height);
         }, false);
     }
 
     render() {
         return (
-            <figure className="masthead__picture  imaginery" ref={(el) => {this.renderCanvas(el)}}/>
+            <figure className="masthead__picture imaginery" ref={(el) => {this.renderCanvas(el)}}/>
         );
     }
 }

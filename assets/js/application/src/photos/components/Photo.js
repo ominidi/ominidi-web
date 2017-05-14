@@ -1,5 +1,14 @@
-import React, {PropTypes} from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
+/**
+ * Photo render a single photo.
+ *
+ * @author Gabriele D'Arrigo <darrigo.g@gmail.com>
+ * @param props
+ * @returns {XML}
+ * @constructor
+ */
 const Photo = (props) => {
     return (
         <div className="photos__item" data-id={ props.id }>

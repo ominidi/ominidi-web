@@ -7,6 +7,7 @@
         // Min height equal to a row of photos
         // to avoid flash content
         min-height: 307px;
+        position: relative;
     }
 
     &__item {

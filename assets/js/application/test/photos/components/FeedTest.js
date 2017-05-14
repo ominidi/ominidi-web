@@ -2,6 +2,8 @@ import assert from 'assert';
 import React from 'react';
 import {shallow} from 'enzyme';
 import Feed from '../../../src/photos/components/Feed';
+import Photo from '../../../src/photos/components/Photo';
+import LoadingSpinner from '../../../src/photos/components/LoadingSpinner';
 
 const data = {
     posts: [
@@ -32,7 +34,7 @@ describe('#Feed', () => {
         wrapper.setState(data);
 
         assert.equal(wrapper.hasClass('feed'), true);
-        assert.equal(wrapper.children().length, data.posts.length);
+        assert.equal(wrapper.find(Photo).length, data.posts.length);
     });
 
     it('should render only feed item of type "photo"', () => {
@@ -50,7 +52,13 @@ describe('#Feed', () => {
         const wrapper = shallow(<Feed />);
         wrapper.setState(data);
 
-        assert.equal(wrapper.hasClass('feed'), true);
-        assert.equal(wrapper.children().length, data.posts.length - 1);
+        assert.equal(wrapper.find(Photo).length, data.posts.length -1);
+    });
+
+    it('should render a loading spinner', () => {
+        const wrapper = shallow(<Feed />);
+        wrapper.setState(data);
+
+        assert.equal(wrapper.find(LoadingSpinner).length, 1);
     });
 });
