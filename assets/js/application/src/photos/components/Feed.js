@@ -19,34 +19,26 @@ export default class Feed extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({ loading: true });
-        console.log('loading')
+        this.setState({loading: true});
 
         window.fetch('/api/v1/feed')
             .then(res => res.json())
-            .then(data => {
-                console.log('done')
-
-                setTimeout(() => {
-                    this.setState(Object.assign(data, { loading: false }))
-
-                },4000)
-
-
-            })
+            .then(data => this.setState(Object.assign(data, {loading: false})))
             .catch(e => console.log(e));
     }
 
     render() {
         return (
             <div className="feed photos__feed">
-                {this.state.posts
-                    .filter(post => post.type === PHOTO)
-                    .map((post, i) => {
-                        return (<Photo { ...post } key={i}/>)
-                    })}
-
-                <LoadingSpinner loading={ this.state.loading } />
+                <LoadingSpinner loading={ this.state.loading }/>
+                
+                {
+                    this.state.posts
+                        .filter(post => post.type === PHOTO)
+                        .map((post, i) => {
+                            return (<Photo { ...post } key={i}/>)
+                        })
+                }
             </div>
         );
     }
