@@ -74,37 +74,34 @@ gulp.task('mocha', () => {
 
 gulp.task('service-worker', (cb) => {
     swPrecache.write(`${dest}/sw.js`, {
-        runtimeCaching: [{
-            urlPattern: /\/api\/v1\//,
-            handler: 'networkFirst'
-        },{
-            urlPattern: '/',
-            handler: 'fastest'
-        },{
-            urlPattern: '/manifesto',
-            handler: 'fastest'
-        },{
-            urlPattern: '/foto',
-            handler: 'fastest'
-        },{
-            urlPattern: '/attributions',
-            handler: 'fastest'
-        },{
-            urlPattern: '/downloads',
-            handler: 'fastest'
-        }],
+        runtimeCaching: [
+            {
+                urlPattern: '/*',
+                handler: 'fastest'
+            },
+            {
+                urlPattern: /\/api\/v1\//,
+                handler: 'networkFirst'
+            },
+            {
+                urlPattern: /^https:\/\/scontent\.xx\.fbcdn\.net\/.*/,
+                handler: 'networkFirst'
+
+            }
+        ],
         staticFileGlobs: [
             `${dest}/css/**/*.css`,
             `${dest}/js/**/*.js`,
-            `${dest}/img/**`,
-            `${dest}/fonts/**`
+            `${dest}/img/**/*.{png,jpg,gif,svg}`,
+            `${dest}/fonts/*.{svg,eot,ttf,woff}`
         ],
-        stripPrefix: `${dest}`
+        stripPrefix: `${dest}`,
+        verbose: true
     }, cb);
 });
 
 gulp.task('copy', () => {
-    gulp.src(`${assets}/js/sw-registration.js`)
+    return gulp.src(`${assets}/js/sw-registration.js`)
         .pipe(gulp.dest(`${dest}/js/`))
 });
 
