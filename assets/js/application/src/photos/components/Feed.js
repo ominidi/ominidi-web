@@ -1,6 +1,7 @@
 import React from 'react';
 import Photo from './Photo';
 import LoadingSpinner from './LoadingSpinner';
+import {getPhotos} from '../services/feed-service';
 
 const PHOTO = 'photo';
 
@@ -21,9 +22,10 @@ export default class Feed extends React.Component {
     componentDidMount() {
         this.setState({loading: true});
 
-        window.fetch('/api/v1/feed')
-            .then(res => res.json())
-            .then(data => this.setState(Object.assign(data, {loading: false})))
+        getPhotos()
+            .then(data => {
+                this.setState(Object.assign(data, { loading: false }));
+            })
             .catch(e => console.log(e));
     }
 

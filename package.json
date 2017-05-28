@@ -11,7 +11,7 @@
     "babel-preset-react": "6.24.1",
     "babel-register": "6.24.1",
     "babelify": "^7.3.0",
-    "browserify": "^14.1.0",
+    "browserify": "^14.4.0",
     "enzyme": "^2.8.0",
     "gulp": "^3.9.1",
     "gulp-cli": "^1.2.2",
