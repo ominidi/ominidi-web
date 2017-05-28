@@ -1,7 +1,7 @@
 import React from 'react';
 import dom from 'react-dom';
 import Feed from './photos/components/Feed';
-import Imaginery from './imaginery/component/Imaginery';
+// import Imaginery from './imaginery/component/Imaginery';
 
 function renderFeed() {
     const container = document.querySelector('.photos__content');
