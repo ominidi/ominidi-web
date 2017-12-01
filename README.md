@@ -23,5 +23,5 @@ Launch application's tests with:
 
 Run the application:
 
-	$ java -Dspring.profiles.active=test -jar target/ominidi-web-1.0-SNAPSHOT.jar
+	$ java -Dspring.profiles.active=test -jar target/ominidi-web-1.0-SNAPSHOT.jar 
 	
